@@ -1,0 +1,2713 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Shop System Plugins - Terms of Use
+ *
+ * The plugins offered are provided free of charge by Wirecard Central Eastern Europe GmbH
+ * (abbreviated to Wirecard CEE) and are explicitly not part of the Wirecard CEE range of
+ * products and services.
+ *
+ * They have been tested and approved for full functionality in the standard configuration
+ * (status on delivery) of the corresponding shop system. They are under General Public
+ * License Version 2 (GPLv2) and can be used, developed and passed on to third parties under
+ * the same terms.
+ *
+ * However, Wirecard CEE does not provide any guarantee or accept any liability for any errors
+ * occurring when used in an enhanced, customized shop system configuration.
+ *
+ * Operation in an enhanced, customized configuration is at your own risk and requires a
+ * comprehensive test phase by the user of the plugin.
+ *
+ * Customers use the plugins at their own risk. Wirecard CEE does not guarantee their full
+ * functionality neither does Wirecard CEE assume liability for any disadvantages related to
+ * the use of the plugins. Additionally, Wirecard CEE does not guarantee the full functionality
+ * for customized shop systems or installed plugins of other vendors of plugins within the same
+ * shop system.
+ *
+ * Customers are responsible for testing the plugin's functionality before starting productive
+ * operation.
+ *
+ * By installing the plugin into the shop system the customer agrees to these terms of use.
+ * Please do not use the plugin if you do not agree to these terms of use!
+ */
+ -->
+<config>
+    <sections>
+        <wirecard_checkoutpage translate="label" module="wirecard_checkoutpage">
+            <label>Wirecard Checkout Page</label>
+            <tab>sales</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>900</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Basic data</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+                        <![CDATA[
+                        <div style="padding:10px;margin-bottom:7px;">
+                        <img src="/skin/adminhtml/default/default/images/wirecard/wirecard-logo.png" alt="Wirecard CEE" /><br /><h3>Wirecard CEE - Your Full Service Payment Provider - Comprehensive solutions from one single source</h3>Wirecard AG is one of the world's leading providers of outsourcing and white label solutions for electronic payment transactions.<br /><br /> As independent provider of payment solutions, we accompany our customers along the entire business development. Our payment solutions are perfectly tailored to suit e-Commerce requirements and have made us Austria's leading payment service provider. Customization, competence, and commitment. <br /><br /> <a href="https://www.wirecard.at/" target="_blank">www.wirecard.at</a>
+                        </div><div style="clear:both;"></div>
+                    ]]>
+                    </comment>
+                    <fields>
+                        <configuration translate="label,comment">
+                            <label>Configuration</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Wirecard_CheckoutPage_Model_System_Config_Configurations</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>For integration, select predefined configuration settings or "production" for live systems.</comment>
+                        </configuration>
+                        <customer_id translate="label,comment">
+                            <label>Customer ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                                Customer number you received from Wirecard (customerId, i.e. D2#####). <a href="https://guides.wirecard.at/request_parameters#customerid" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </customer_id>
+                        <shop_id translate="label,comment">
+                            <label>Shop ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                Shop identifier in case of more than one shop. <a href="https://guides.wirecard.at/request_parameters#shopid" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </shop_id>
+                        <secret translate="label,comment">
+                            <label>Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                String which you received from Wirecard for signing and validating data to prove their authenticity. <a href="https://guides.wirecard.at/security:start#secret_and_fingerprint" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </secret>
+                        <register translate="label">
+                            <label></label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>Wirecard_CheckoutPage_Block_Admin_Buttons</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </register>
+                    </fields>
+                </settings>
+                <options translate="label">
+                    <label>Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <serviceurl translate="label,comment">
+                            <label>URL to imprint page</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-url</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                URL on the payment page which leads to the imprint page of the online shop. <a href="https://guides.wirecard.at/doku.php/request_parameters#serviceurl" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </serviceurl>
+                        <displaytext translate="label,comment">
+                            <label>Text on payment page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                Text displayed during the payment process, i.e. "Thank you for ordering in xy-shop". <a href="https://guides.wirecard.at/request_parameters#displaytext" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </displaytext>
+                        <imageurl translate="label,comment">
+                            <label>URL to image on payment page</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-url</validate>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                URL to an image/logo which is displayed during the payment process in Wirecard Checkout Page. <a href="https://guides.wirecard.at/request_parameters#imageurl" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </imageurl>
+                        <bgcolor translate="label,comment">
+                            <label>Background color for credit card logos</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                Background color for the image containing the credit card brand logos. <a href="https://guides.wirecard.at/doku.php/wcp:customization_desktop" target="_blank">More information.</a>
+                                ]]>
+                            </comment>
+                        </bgcolor>
+                        <shopname translate="label,comment">
+                            <label>Shop prefix in posting text</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                Reference to your online shop on your consumer's invoice, limited to 9 characters.
+                            </comment>
+                        </shopname>
+                        <sendadditionaldata translate="label,comment">
+                            <label>Forward consumer data</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                            Forwarding shipping and billing data about your consumer to the respective financial service provider.
+                            ]]>
+                            </comment>
+                        </sendadditionaldata>
+                        <sendconfirmationemail translate="label,comment">
+                            <label>Notification e-mail</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                            Receiving notification by e-mail regarding the orders of your consumers if an error occurred in the communication between Wirecard and your online shop. <a href="https://guides.wirecard.at/request_parameters#confirmMail" target="_blank">More information</a>. Please contact our <a href="https://guides.wirecard.at/sales" target="_blank">sales teams</a> to activate this feature.
+                            ]]>
+                            </comment>
+                        </sendconfirmationemail>
+                        <autodeposit translate="label,comment">
+                            <label>Automated deposit</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                            Enabling an automated deposit of payments. <a href="https://guides.wirecard.at/request_parameters#autodeposit" target="_blank">More information</a>. Please contact our <a href="https://guides.wirecard.at/sales" target="_blank">sales teams</a> to activate this feature.
+                            ]]>
+                            </comment>
+                        </autodeposit>
+                        <sendbasketinformation translate="label,comment">
+                            <label>Forward basket data</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                            Forwarding basket data to the respective financial service provider.
+                            ]]>
+                            </comment>
+                        </sendbasketinformation>
+                        <mobiledetect translate="label,comment">
+                            <label>Device detection</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+                            Detecting mobile browsers and setting "layout" request parameter accordingly. Forcing page redirect for mobile devices instead of iframe based checkout.
+                            ]]>
+                            </comment>
+                        </mobiledetect>
+                        <layout translate="label,comment">
+                            <label>Device type optimization</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Wirecard_CheckoutPage_Model_System_Config_Layouts</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                Specific device type for which Wirecard Checkout Page should be optimized ("desktop", "tablet" or "smartphone"). <a href="https://guides.wirecard.at/request_parameters#layout" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </layout>
+                        <maxretries translate="label,comment">
+                            <label>Max. retries</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                Maximum number of payment attempts regarding a certain order. <a href="https://guides.wirecard.at/request_parameters#maxretries" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </maxretries>
+                        <payolution_terms translate="label,comment">
+                            <label>payolution terms</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                Consumer must accept payolution terms during the checkout process. <a href="https://guides.wirecard.at/payment_methods:payolution:start" target="_blank">More information.</a>
+                            ]]>
+                            </comment>
+                        </payolution_terms>
+                        <payolution_mid translate="label,comment">
+                            <label>payolution mID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>
+                                <![CDATA[
+                                Your payolution merchant ID, non-base64-encoded.
+                            ]]>
+                            </comment>
+                        </payolution_mid>
+                    </fields>
+                </options>
+            </groups>
+        </wirecard_checkoutpage>
+    </sections>
+    <sections>
+        <payment>
+            <groups>
+                <wirecard_checkoutpage_select translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Select</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_select>
+                <wirecard_checkoutpage_cc translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Credit Card / Maestro SecureCode</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1020</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_cc>
+                <wirecard_checkoutpage_ccMoto translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Credit Card - Mail Order / Telephone Order</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1030</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_ccMoto>
+                <wirecard_checkoutpage_eps translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page eps Online-Überweisung</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1040</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_eps>
+                <wirecard_checkoutpage_ideal translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page iDEAL</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1050</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_ideal>
+                <wirecard_checkoutpage_giropay translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page giropay</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1060</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_giropay>
+                <wirecard_checkoutpage_tatrapay translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page TatraPay</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1070</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_tatrapay>
+                <wirecard_checkoutpage_sofortbanking translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page SOFORT Banking</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1080</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_sofortbanking>
+                <wirecard_checkoutpage_skrilldirect translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Skrill Direct</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1090</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_skrilldirect>
+                <wirecard_checkoutpage_skrillwallet translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Skrill Digital Wallet</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_skrillwallet>
+                <wirecard_checkoutpage_mpass translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page mpass</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1110</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_mpass>
+                <wirecard_checkoutpage_bmc translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Bancontact/Mister Cash</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1120</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_bmc>
+                <wirecard_checkoutpage_p24 translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Przelewy24</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1130</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_p24>
+                <wirecard_checkoutpage_poli translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page POLi</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1140</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_poli>
+                <wirecard_checkoutpage_moneta translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page moneta.ru</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1150</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_moneta>
+                <wirecard_checkoutpage_ekonto translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page eKonto</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1160</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_ekonto>
+                <wirecard_checkoutpage_trustly translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Trustly</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1170</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_trustly>
+                <wirecard_checkoutpage_paybox translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page paybox</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1180</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_paybox>
+                <wirecard_checkoutpage_paysafecard translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page paysafecard</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1190</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_paysafecard>
+                <wirecard_checkoutpage_quick translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page @Quick</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_quick>
+                <wirecard_checkoutpage_paypal translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page PayPal</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1210</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_paypal>
+                <wirecard_checkoutpage_epaybg translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page ePay.bg</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1220</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_epaybg>
+                <wirecard_checkoutpage_sepadd translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page SEPA Direct Debit</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1230</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_sepadd>
+                <wirecard_checkoutpage_invoice translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Invoice</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1240</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <provider translate="label">
+                            <label>Financial service provider</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Wirecard_CheckoutPage_Model_System_Config_InvoiceProviders</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </provider>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </max_order_total>
+                        <currencies translate="label,comment">
+                            <label>Supported currencies</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_currency</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Only applicable for RatePay.</comment>
+                        </currencies>
+                        <min_age translate="label,comment">
+                            <label>Minimum age</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-not-negative-number</validate>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Only applicable for RatePay.</comment>
+                        </min_age>
+                    </fields>
+                </wirecard_checkoutpage_invoice>
+                <wirecard_checkoutpage_invoiceb2b translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Invoice B2B</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1250</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <provider translate="label">
+                            <label>Financial service provider</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Wirecard_CheckoutPage_Model_System_Config_InvoiceProviders</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </provider>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_invoiceb2b>
+                <wirecard_checkoutpage_installment translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page Installment</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1260</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <provider translate="label">
+                            <label>Financial service provider</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>Wirecard_CheckoutPage_Model_System_Config_InstallmentProviders</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </provider>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                        <currencies translate="label,comment">
+                            <label>Supported currencies</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>adminhtml/system_config_source_currency</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Only applicable for RatePay.</comment>
+                        </currencies>
+                        <min_age translate="label,comment">
+                            <label>Minimum Age</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-not-negative-number</validate>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Only applicable for RatePay.</comment>
+                        </min_age>
+                    </fields>
+                </wirecard_checkoutpage_installment>
+                <wirecard_checkoutpage_voucher translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page My Voucher</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1270</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_voucher>
+                <wirecard_checkoutpage_trustpay translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page TrustPay</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1280</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <sort_order translate="label">
+                            <label>Sorting order number</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
+                        </sort_order>
+                        <title translate="label">
+                            <label>Name for payment method</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>The name for the payment method to be displayed in the online shop.</comment>
+                        </title>
+                        <iframe>
+                            <label>Display as iframe</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>50</sort_order>
+                            <source_model>adminhtml/system_config_source_enabledisable
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </iframe>
+                        <allowspecific translate="label">
+                            <label>Payment method available for</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowspecific>
+                        <specificcountry translate="label">
+                            <label>Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>80</sort_order>
+                            <source_model>adminhtml/system_config_source_country
+                            </source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </specificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum order total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                    </fields>
+                </wirecard_checkoutpage_trustpay>
+            </groups>
+        </payment>
+    </sections>
+</config>

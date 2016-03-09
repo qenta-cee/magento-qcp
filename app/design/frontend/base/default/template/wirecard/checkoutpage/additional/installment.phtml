@@ -1,0 +1,106 @@
+<?php
+/**
+ * Shop System Plugins - Terms of Use
+ *
+ * The plugins offered are provided free of charge by Wirecard Central Eastern Europe GmbH
+ * (abbreviated to Wirecard CEE) and are explicitly not part of the Wirecard CEE range of
+ * products and services.
+ *
+ * They have been tested and approved for full functionality in the standard configuration
+ * (status on delivery) of the corresponding shop system. They are under General Public
+ * License Version 2 (GPLv2) and can be used, developed and passed on to third parties under
+ * the same terms.
+ *
+ * However, Wirecard CEE does not provide any guarantee or accept any liability for any errors
+ * occurring when used in an enhanced, customized shop system configuration.
+ *
+ * Operation in an enhanced, customized configuration is at your own risk and requires a
+ * comprehensive test phase by the user of the plugin.
+ *
+ * Customers use the plugins at their own risk. Wirecard CEE does not guarantee their full
+ * functionality neither does Wirecard CEE assume liability for any disadvantages related to
+ * the use of the plugins. Additionally, Wirecard CEE does not guarantee the full functionality
+ * for customized shop systems or installed plugins of other vendors of plugins within the same
+ * shop system.
+ *
+ * Customers are responsible for testing the plugin's functionality before starting productive
+ * operation.
+ *
+ * By installing the plugin into the shop system the customer agrees to these terms of use.
+ * Please do not use the plugin if you do not agree to these terms of use!
+ */
+?>
+<li><label for="wirecard_checkoutpage_installment_dob_day" class="required"><em>*</em><?php echo $this->__('Date of Birth') ?></label>
+    <div class="input-box wirecard-checkoutpage-dob customer-dob">
+        <div class="dob-day wirecard-checkoutpage-installment-dob-day">
+            <input type="text" id="wirecard_checkoutpage_installment_dob_day"
+                name="payment[wirecard_checkoutpage_installment_dob_day]"
+                value="<?php echo $this->getCustomerDobDay() ?>"
+                title="<?php echo $this->__('Day') ?>"
+                class="input-text validate-custom" /> <label
+                for="wirecard_checkoutpage_installment_dob_day"><?php echo $this->__('DD') ?></label>
+        </div>
+        <div class="dob-month wirecard-checkoutpage-installment-dob-month">
+            <input type="text" id="wirecard_checkoutpage_installment_dob_month"
+                name="payment[wirecard_checkoutpage_installment_dob_month]"
+                value="<?php echo $this->getCustomerDobMonth() ?>"
+                title="<?php echo $this->__('Month') ?>"
+                class="input-text validate-custom" /> <label
+                for="wirecard_checkoutpage_installment_dob_month"><?php echo $this->__('MM')  ?></label>
+        </div>
+        <div class="dob-year wirecard-checkoutpage-installment-dob-year">
+            <input type="text" id="wirecard_checkoutpage_installment_dob_year"
+                name="payment[wirecard_checkoutpage_installment_dob_year]"
+                value="<?php echo $this->getCustomerDobYear() ?>"
+                title="<?php echo $this->__('Year')  ?>"
+                class="input-text validate-custom" /> <label
+                for="wirecard_checkoutpage_installment_dob_year"><?php echo $this->__('YYYY') ?></label>
+        </div>
+        <div class="dob-full wirecard-checkoutpage-installment-dob-full" style="display: none;">
+            <input type="hidden" id="wirecard_checkoutpage_installment_dob_full"
+                name="payment[wirecard_checkoutpage_installment_dob]" />
+        </div>
+
+        <div class="validation-advice wirecard-checkoutpage-installment-validation-advice" id="wirecard_checkoutpage_installment_validation_advice" style="display: none;"></div>
+    </div>
+</li>
+
+<script type="text/javascript">
+    Translator.add('You have to be 18 years or older to use installment payments.','<?php echo $this->__('You have to be 18 years or older to use installment payments.')?>');
+</script> <script type="text/javascript">
+//<![CDATA[
+Varien.QINSTDateElement = Class.create();
+Varien.QINSTDateElement.prototype = Object.extend(new Varien.DateElement(), {
+    validateData: function() {
+        var year = this.fullDate.getFullYear();
+        var date = new Date;
+        this.curyear = date.getFullYear();
+        if(year <= 1899 || year >= this.curyear+1)
+        {
+            return false;
+        }
+        var today = new Date();
+        var limit = new Date((today.getFullYear() - 18), today.getMonth(), today.getDate());
+        var validateToYoung = this.fullDate <= limit;
+        this.validateDataErrorText = 'You have to be 18 years or older to use installment payments.';
+        return validateToYoung;
+    }
+});
+Varien.QINSTDOB = Class.create();
+Varien.QINSTDOB.prototype = {
+    initialize: function(selector, required, format) {
+        var el = $(selector);
+        var container       = {};
+        container.day       = Element.select(el, '#wirecard_checkoutpage_installment_dob_day')[0];
+        container.month     = Element.select(el, '#wirecard_checkoutpage_installment_dob_month')[0];
+        container.year      = Element.select(el, '#wirecard_checkoutpage_installment_dob_year')[0];
+        container.full      = Element.select(el, '#wirecard_checkoutpage_installment_dob_full')[0];
+        container.advice    = Element.select(el, '#wirecard_checkoutpage_installment_validation_advice')[0];
+
+        new Varien.QINSTDateElement('container', container, required, format);
+    }
+};
+
+var wirecard_checkoutpage_installment_customer_dob = new Varien.QINSTDOB('#payment_form_wirecard_checkoutpage_installment', 'true', '%y-%m-%d');
+//]]>
+</script>

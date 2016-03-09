@@ -1,0 +1,51 @@
+<?php
+/**
+ * Shop System Plugins - Terms of Use
+ *
+ * The plugins offered are provided free of charge by Wirecard Central Eastern Europe GmbH
+ * (abbreviated to Wirecard CEE) and are explicitly not part of the Wirecard CEE range of
+ * products and services.
+ *
+ * They have been tested and approved for full functionality in the standard configuration
+ * (status on delivery) of the corresponding shop system. They are under General Public
+ * License Version 2 (GPLv2) and can be used, developed and passed on to third parties under
+ * the same terms.
+ *
+ * However, Wirecard CEE does not provide any guarantee or accept any liability for any errors
+ * occurring when used in an enhanced, customized shop system configuration.
+ *
+ * Operation in an enhanced, customized configuration is at your own risk and requires a
+ * comprehensive test phase by the user of the plugin.
+ *
+ * Customers use the plugins at their own risk. Wirecard CEE does not guarantee their full
+ * functionality neither does Wirecard CEE assume liability for any disadvantages related to
+ * the use of the plugins. Additionally, Wirecard CEE does not guarantee the full functionality
+ * for customized shop systems or installed plugins of other vendors of plugins within the same
+ * shop system.
+ *
+ * Customers are responsible for testing the plugin's functionality before starting productive
+ * operation.
+ *
+ * By installing the plugin into the shop system the customer agrees to these terms of use.
+ * Please do not use the plugin if you do not agree to these terms of use!
+ */
+?>
+<style type="text/css">
+    html { font:bold 12px/28px Arial, Helvetica, sans-serif; }
+</style>
+<b><?php echo Mage::helper('wirecard_checkoutpage')->__('You will be redirected to the payment page in a few seconds. If you are not redirected, click the redirect button.'); ?></b>
+<form name="wirecard_checkoutpage_checkout" id="wirecard_checkoutpage_checkout" action="<?php echo $this->getFormAction();?>" method="get">
+<?php if (is_array($this->getFormData())): ?>
+    <?php foreach ($this->getFormData() as $name => $value): ?>
+        <input type="hidden" name="<?php echo $name; ?>" value="<?php echo $value; ?>"/>
+    <?php endforeach; ?>
+<?php endif; ?>
+<input type="button" onclick="document.wirecard_checkoutpage_checkout.submit();" value="<?php echo Mage::helper('wirecard_checkoutpage')->__('redirect') ?>">
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+    var paymentform = document.getElementById('wirecard_checkoutpage_checkout');
+    window.onload = paymentform.submit();
+//]]>
+</script>

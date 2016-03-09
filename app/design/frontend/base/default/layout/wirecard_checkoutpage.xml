@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Shop System Plugins - Terms of Use
+ *
+ * The plugins offered are provided free of charge by Wirecard Central Eastern Europe GmbH
+ * (abbreviated to Wirecard CEE) and are explicitly not part of the Wirecard CEE range of
+ * products and services.
+ *
+ * They have been tested and approved for full functionality in the standard configuration
+ * (status on delivery) of the corresponding shop system. They are under General Public
+ * License Version 2 (GPLv2) and can be used, developed and passed on to third parties under
+ * the same terms.
+ *
+ * However, Wirecard CEE does not provide any guarantee or accept any liability for any errors
+ * occurring when used in an enhanced, customized shop system configuration.
+ *
+ * Operation in an enhanced, customized configuration is at your own risk and requires a
+ * comprehensive test phase by the user of the plugin.
+ *
+ * Customers use the plugins at their own risk. Wirecard CEE does not guarantee their full
+ * functionality neither does Wirecard CEE assume liability for any disadvantages related to
+ * the use of the plugins. Additionally, Wirecard CEE does not guarantee the full functionality
+ * for customized shop systems or installed plugins of other vendors of plugins within the same
+ * shop system.
+ *
+ * Customers are responsible for testing the plugin's functionality before starting productive
+ * operation.
+ *
+ * By installing the plugin into the shop system the customer agrees to these terms of use.
+ * Please do not use the plugin if you do not agree to these terms of use!
+ */
+-->
+
+<layout version="0.1.0">
+    <!--
+    WirecardCheckoutPage Failure Response Review
+    -->
+    <wirecard_checkoutpage_processing_failure>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/2columns-right.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="wirecard_checkoutpage/failure" name="wirecard_checkoutpage_failure"
+                   template="wirecard/checkoutpage/failure.phtml">
+            </block>
+        </reference>
+    </wirecard_checkoutpage_processing_failure>
+
+    <wirecard_checkoutpage_processing_checkout>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>page/1column.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="wirecard_checkoutpage/checkout"
+                   name="wirecard_checkoutpage_checkout"
+                   template="wirecard/checkoutpage/checkout.phtml">
+            </block>
+        </reference>
+    </wirecard_checkoutpage_processing_checkout>
+
+    <wirecard_checkoutpage_processing_redirect>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>wirecard/checkoutpage/blank.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="wirecard_checkoutpage/processing" name="wirecard_checkoutpage_processing"
+                   template="wirecard/checkoutpage/processing.phtml"/>
+        </reference>
+    </wirecard_checkoutpage_processing_redirect>
+
+    <wirecard_checkoutpage_processing_return>
+        <reference name="root">
+            <action method="setTemplate">
+                <template>wirecard/checkoutpage/blank.phtml</template>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="wirecard_checkoutpage/return" name="wirecard_checkoutpage_return"
+                   template="wirecard/checkoutpage/return.phtml"/>
+        </reference>
+    </wirecard_checkoutpage_processing_return>
+
+</layout>
