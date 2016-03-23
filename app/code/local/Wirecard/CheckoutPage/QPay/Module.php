@@ -24,7 +24,7 @@ class WirecardCEE_QPay_Module extends WirecardCEE_Stdlib_Module_ModuleAbstract i
      * @return Array
      */
     public static final function getConfig() {
-        return include Mage::getBaseDir('code') . '/local/Wirecard/QPay/Config/user.config.php';
+        return include Mage::getBaseDir('code') . '/local/Wirecard/CheckoutPage/QPay/Config/user.config.php';
     }
 
     /**
@@ -34,6 +34,6 @@ class WirecardCEE_QPay_Module extends WirecardCEE_Stdlib_Module_ModuleAbstract i
      * @return Array
      */
     public static final function getClientConfig() {
-        return include Mage::getBaseDir('code') . '/local/Wirecard/QPay/Config/client.config.php';
+        return include Mage::getBaseDir('code') . '/local/Wirecard/CheckoutPage/QPay/Config/client.config.php';
     }
 }

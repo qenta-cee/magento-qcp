@@ -24,6 +24,6 @@ class WirecardCEE_Stdlib_Module extends WirecardCEE_Stdlib_Module_ModuleAbstract
      * @return Array
      */
     public static final function getClientConfig() {
-        return include Mage::getBaseDir('code') . '/local/Wirecard/Stdlib/Config/client.config.php';
+        return include Mage::getBaseDir('code') . '/local/Wirecard/CheckoutPage/Stdlib/Config/client.config.php';
     }
 }
