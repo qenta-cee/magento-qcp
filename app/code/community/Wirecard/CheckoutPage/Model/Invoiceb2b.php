@@ -89,12 +89,10 @@ class Wirecard_CheckoutPage_Model_Invoiceb2b extends Wirecard_CheckoutPage_Model
         }
 
         $billingAddress = $quote->getBillingAddress();
-        if (strlen($billingAddress->getCompany()))
-            return true;
-
-        $vat_id = $billingAddress->getData('vat_id');
-        if (!strlen($vat_id))
+        if (!strlen($billingAddress->getCompany()))
+        {
             return false;
+        }
 
         return parent::isAvailable($quote);
     }
