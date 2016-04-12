@@ -1,8 +1,8 @@
 # Wirecard Checkout Page extension for Magento
 
 [![License](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/wirecard/Magento-WCP/master/LICENSE)
-[![Magento Community Edition 1.9.2.3](https://img.shields.io/badge/Magento_CE-1.9.2.3-green.svg)](https://www.magento.com/)
-[![PHP v5.3](https://img.shields.io/badge/PHP-v5.3-yellow.svg)](http://www.php.net)
+[![Magento Community Edition 1.9.2.3](https://img.shields.io/badge/Magento_CE-v1.9.2.3-green.svg)](https://www.magento.com/)
+[![PHP v5.3](https://img.shields.io/badge/php-v5.3-yellow.svg)](http://www.php.net)
 
 Wirecard Checkout Page extension for Magento. 
 
