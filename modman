@@ -1,0 +1,11 @@
+app/code/community/Wirecard/CheckoutPage                                app/code/community/Wirecard/CheckoutPage
+app/code/local/Wirecard/CheckoutPage                                    app/code/local/Wirecard/CheckoutPage
+app/design/adminhtml/default/default/template/wirecard                  app/design/adminhtml/default/default/template/wirecard
+app/design/frontend/base/default/layout/wirecard_checkoutpage.xml       app/design/frontend/base/default/layout/wirecard_checkoutpage.xml
+app/design/frontend/base/default/template/wirecard                      app/design/frontend/base/default/template/wirecard
+app/etc/modules/Wirecard_CheckoutPage.xml                               app/etc/modules/Wirecard_CheckoutPage.xml
+app/locale/de_AT/Wirecard_CheckoutPage.csv                              app/locale/de_AT/Wirecard_CheckoutPage.csv
+app/locale/de_DE/Wirecard_CheckoutPage.csv                              app/locale/de_DE/Wirecard_CheckoutPage.csv
+app/locale/en_US/Wirecard_CheckoutPage.csv                              app/locale/en_US/Wirecard_CheckoutPage.csv
+skin/adminhtml/default/default/images/wirecard                          skin/adminhtml/default/default/images/wirecard
+skin/frontend/base/default/images/wirecard                              skin/frontend/base/default/images/wirecard
