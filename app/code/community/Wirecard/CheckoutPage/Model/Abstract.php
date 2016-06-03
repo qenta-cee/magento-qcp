@@ -53,7 +53,7 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
     protected $_defaultLocale = 'en';
 
     protected $_order;
-    protected $_pluginVersion = '4.0.4';
+    protected $_pluginVersion = '4.0.5';
     protected $_pluginName = 'Wirecard/CheckoutPage';
 
     protected $_formBlockType = 'wirecard_checkoutpage/form';
@@ -148,7 +148,7 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
         $init->setPluginVersion($helper->getPluginVersion());
 
         $init->setConfirmUrl(Mage::getUrl('wirecard_checkoutpage/processing/confirm', array('_secure' => true, '_nosid' => true)));
-        $init->setOrderReference(sprintf('%010d', $this->getOrder()->getRealOrderId()));
+        $init->setOrderReference($this->getOrderReference());
 
         if ($helper->getConfigData('sendconfirmemail')) {
             $init->setConfirmMail(Mage::getStoreConfig('trans_email/ident_general/email'));
@@ -264,14 +264,30 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
     }
 
     /**
-     * Returns desription of customer - will be displayed in Wirecard backend
+     * Returns order reference
+     *
+     * @return string
+     */
+    protected function getOrderReference()
+    {
+        return sprintf('%010d', $this->getOrder()->getRealOrderId());
+    }
+
+    /**
+     * Returns description of customer - will be displayed in Wirecard backend
      *
      * @return string
      */
     protected function getUserDescription()
     {
-        return sprintf('%s %s %s', $this->getOrder()->getCustomerEmail(), $this->getOrder()->getCustomerFirstname(),
-            $this->getOrder()->getCustomerLastname());
+        $orderDescription = trim(sprintf('%s %s %s', $this->getOrder()->getCustomerEmail(),
+            $this->getOrder()->getCustomerFirstname(), $this->getOrder()->getCustomerLastname()));
+
+        if(!strlen($orderDescription)) {
+            $orderDescription = $this->getOrderReference();
+        }
+
+        return $orderDescription;
     }
 
     /**
