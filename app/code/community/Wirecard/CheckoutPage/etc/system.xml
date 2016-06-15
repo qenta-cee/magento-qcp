@@ -2243,15 +2243,6 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </active>
-                        <provider translate="label">
-                            <label>Financial service provider</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>Wirecard_CheckoutPage_Model_System_Config_InvoiceProviders</source_model>
-                            <sort_order>22</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </provider>
                         <sort_order translate="label">
                             <label>Sorting order number</label>
                             <frontend_type>text</frontend_type>
@@ -2355,15 +2346,6 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </active>
-                        <provider translate="label">
-                            <label>Financial service provider</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>Wirecard_CheckoutPage_Model_System_Config_InvoiceProviders</source_model>
-                            <sort_order>22</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </provider>
                         <sort_order translate="label">
                             <label>Sorting order number</label>
                             <frontend_type>text</frontend_type>
@@ -2447,15 +2429,6 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </active>
-                        <provider translate="label">
-                            <label>Financial service provider</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>Wirecard_CheckoutPage_Model_System_Config_InstallmentProviders</source_model>
-                            <sort_order>22</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </provider>
                         <sort_order translate="label">
                             <label>Sorting order number</label>
                             <frontend_type>text</frontend_type>
