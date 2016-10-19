@@ -185,6 +185,11 @@ class WirecardCEE_QPay_FrontendClient extends WirecardCEE_Stdlib_Client_ClientAb
     protected $oConsumerData;
 
     /**
+     * @var WirecardCEE_Stdlib_Basket
+     */
+    protected $oBasket;
+
+    /**
      * Library name
      * @staticvar string
      * @internal
@@ -603,6 +608,18 @@ class WirecardCEE_QPay_FrontendClient extends WirecardCEE_Stdlib_Client_ClientAb
     public function setConsumerData(WirecardCEE_Stdlib_ConsumerData $consumerData) {
         $this->oConsumerData = $consumerData;
         foreach($consumerData->getData() as $key => $value) {
+            $this->_setField($key, $value);
+        }
+        return $this;
+    }
+
+    /**
+     * @param WirecardCEE_Stdlib_Basket $basket
+     * @return $this
+     */
+    public function setBasket(WirecardCEE_Stdlib_Basket $basket) {
+        $this->oBasket = $basket;
+        foreach($basket->getData() AS $key => $value) {
             $this->_setField($key, $value);
         }
         return $this;

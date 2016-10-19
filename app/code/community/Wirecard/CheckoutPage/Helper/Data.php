@@ -56,7 +56,7 @@ class Wirecard_CheckoutPage_Helper_Data extends Mage_Payment_Helper_Data
         ),
         'test_3d'   => array(
             'settings/customer_id' => 'D200411',
-            'settings/shop_id'     => '',
+            'settings/shop_id'     => '3D',
             'settings/secret'      => 'DP4TMTPQQWFJW34647RM798E9A5X7E8ATP462Z4VGZK53YEJ3JWXS98B9P4F',
             'settings/backendpw'   => '2g4f9q2m'
         )
