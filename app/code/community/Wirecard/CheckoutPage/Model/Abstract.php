@@ -53,7 +53,7 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
     protected $_defaultLocale = 'en';
 
     protected $_order;
-    protected $_pluginVersion = '4.0.5';
+    protected $_pluginVersion = '4.1.0';
     protected $_pluginName = 'Wirecard/CheckoutPage';
 
     protected $_formBlockType = 'wirecard_checkoutpage/form';
@@ -165,6 +165,7 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
             ->setCancelUrl($returnUrl)
             ->setFailureUrl($returnUrl)
             ->setServiceUrl($helper->getConfigData('options/serviceurl'))
+            ->createConsumerMerchantCrmId($this->getOrder()->getCustomerEmail())
             ->setConsumerData($this->_getConsumerData());
 
         $init->setMaxRetries($helper->getConfigData('options/maxretries'));
