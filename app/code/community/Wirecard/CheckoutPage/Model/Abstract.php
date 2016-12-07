@@ -179,28 +179,31 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
             || ($this->_paymentMethod == WirecardCEE_Stdlib_PaymentTypeAbstract::INVOICE && $this->getConfigData('provider') == 'ratepay')
         ) {
             $basket = new WirecardCEE_Stdlib_Basket();
-            $basket->setCurrency($this->getOrder()->getBaseCurrencyCode());
 
             foreach ($order->getAllVisibleItems() as $item) {
                 /** @var Mage_Sales_Model_Order_Item $item */
                 $bitem = new WirecardCEE_Stdlib_Basket_Item();
                 $bitem->setDescription($item->getProduct()->getName());
                 $bitem->setArticleNumber($item->getSku());
-                $bitem->setUnitPrice(number_format($item->getPrice(), $precision, '.', ''));
-                $bitem->setTax(number_format($item->getTaxAmount(), $precision, '.', ''));
+                $bitem->setUnitGrossAmount(number_format($item->getPriceInclTax(), $precision, '.', ''));
+                $bitem->setUnitNetAmount(number_format($item->getPrice(), $precision, '.', ''));
+                $bitem->setUnitTaxAmount(number_format($item->getTaxAmount(), $precision, '.', ''));
+                $bitem->setUnitTaxRate(number_format($item->getTaxPercent(), $precision, '.', ''));
+                $bitem->setName($item->getProduct()->getName());
                 $basket->addItem($bitem, (int)$item->getQtyOrdered());
+                $helper->log(print_r($bitem, true));
             }
             $bitem = new WirecardCEE_Stdlib_Basket_Item();
             $bitem->setArticleNumber('shipping');
-            $bitem->setUnitPrice(number_format($order->getShippingAmount(), $precision, '.', ''));
-            $bitem->setTax(number_format($order->getShippingTaxAmount(), $precision, '.', ''));
+            $bitem->setUnitGrossAmount(number_format($order->getShippingInclTax(), $precision, '.', ''));
+            $bitem->setUnitNetAmount(number_format($order->getShippingAmount(), $precision, '.', ''));
+            $bitem->setUnitTaxAmount(number_format($order->getShippingTaxAmount(), $precision, '.', ''));
+            $bitem->setUnitTaxRate((($bitem->getUnitGrossAmount() / $bitem->getUnitNetAmount()) - 1) * 100);
             $bitem->setDescription($order->getShippingDescription());
+            $bitem->setName('shipping');
             $basket->addItem($bitem);
 
-            foreach ($basket->__toArray() as $k => $v)
-            {
-                $init->$k = $v;
-            }
+            $init->setBasket($basket);
         }
 
         if ($helper->getConfigData('options/sendconfirmationemail'))
