@@ -1,30 +1,53 @@
 <?php
-/*
-* Die vorliegende Software ist Eigentum von Wirecard CEE und daher vertraulich
-* zu behandeln. Jegliche Weitergabe an dritte, in welcher Form auch immer, ist
-* unzulaessig.
-*
-* Software & Service Copyright (C) by
-* Wirecard Central Eastern Europe GmbH,
-* FB-Nr: FN 195599 x, http://www.wirecard.at
-*/
+/**
+ * Shop System Plugins - Terms of Use
+ *
+ * The plugins offered are provided free of charge by Wirecard Central Eastern Europe GmbH
+ * (abbreviated to Wirecard CEE) and are explicitly not part of the Wirecard CEE range of
+ * products and services.
+ *
+ * They have been tested and approved for full functionality in the standard configuration
+ * (status on delivery) of the corresponding shop system. They are under General Public
+ * License Version 2 (GPLv2) and can be used, developed and passed on to third parties under
+ * the same terms.
+ *
+ * However, Wirecard CEE does not provide any guarantee or accept any liability for any errors
+ * occurring when used in an enhanced, customized shop system configuration.
+ *
+ * Operation in an enhanced, customized configuration is at your own risk and requires a
+ * comprehensive test phase by the user of the plugin.
+ *
+ * Customers use the plugins at their own risk. Wirecard CEE does not guarantee their full
+ * functionality neither does Wirecard CEE assume liability for any disadvantages related to
+ * the use of the plugins. Additionally, Wirecard CEE does not guarantee the full functionality
+ * for customized shop systems or installed plugins of other vendors of plugins within the same
+ * shop system.
+ *
+ * Customers are responsible for testing the plugin's functionality before starting productive
+ * operation.
+ *
+ * By installing the plugin into the shop system the customer agrees to these terms of use.
+ * Please do not use the plugin if you do not agree to these terms of use!
+ */
+
 
 /**
  * @name WirecardCEE_Stdlib_Return_Success_PayPal
  * @category WirecardCEE
  * @package WirecardCEE_Stdlib
  * @subpackage Return_Success
- * @version 3.2.0
  * @abstract
  */
-abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdlib_Return_Success {
+abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdlib_Return_Success
+{
 
     /**
      * getter for the return parameter paypalPayerID
      *
      * @return string
      */
-    public function getPayerId() {
+    public function getPayerId()
+    {
         return $this->paypalPayerID;
     }
 
@@ -33,7 +56,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerEmail() {
+    public function getPayerEmail()
+    {
         return $this->paypalPayerEmail;
     }
 
@@ -42,7 +66,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerLastName() {
+    public function getPayerLastName()
+    {
         return $this->paypalPayerLastName;
     }
 
@@ -51,7 +76,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerFirstName() {
+    public function getPayerFirstName()
+    {
         return $this->paypalPayerFirstName;
     }
 
@@ -60,7 +86,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerAddressName() {
+    public function getPayerAddressName()
+    {
         return $this->paypalPayerAddressName;
     }
 
@@ -69,7 +96,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerAddressCountry() {
+    public function getPayerAddressCountry()
+    {
         return $this->paypalPayerAddressCountry;
     }
 
@@ -78,7 +106,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerAddressCity() {
+    public function getPayerAddressCity()
+    {
         return $this->paypalPayerAddressCity;
     }
 
@@ -87,7 +116,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerAddressState() {
+    public function getPayerAddressState()
+    {
         return $this->paypalPayerAddressState;
     }
 
@@ -96,7 +126,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerAddressStreet1() {
+    public function getPayerAddressStreet1()
+    {
         return $this->paypalPayerAddressStreet1;
     }
 
@@ -105,7 +136,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerAddressStreet2() {
+    public function getPayerAddressStreet2()
+    {
         return $this->paypalPayerAddressStreet2;
     }
 
@@ -114,7 +146,8 @@ abstract class WirecardCEE_Stdlib_Return_Success_PayPal extends WirecardCEE_Stdl
      *
      * @return string
      */
-    public function getPayerAddressZip() {
+    public function getPayerAddressZip()
+    {
         return $this->paypalPayerAddressZIP;
     }
 }
