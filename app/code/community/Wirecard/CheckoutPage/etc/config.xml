@@ -155,14 +155,14 @@
         </wirecard_checkoutpage>
         <payment>
             <wirecard_checkoutpage_select>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/select</model>
                 <title>Select</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_select>
             <wirecard_checkoutpage_cc>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/cc</model>
                 <title>Credit Card / Maestro SecureCode</title>
                 <iframe>1</iframe>
@@ -176,147 +176,147 @@
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_ccMoto>
             <wirecard_checkoutpage_eps>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/eps</model>
                 <title>eps Online-Überweisung</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_eps>
             <wirecard_checkoutpage_ideal>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/ideal</model>
                 <title>iDEAL</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_ideal>
             <wirecard_checkoutpage_giropay>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/giropay</model>
                 <title>giropay</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_giropay>
             <wirecard_checkoutpage_tatrapay>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/tatrapay</model>
                 <title>TatraPay</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_tatrapay>
             <wirecard_checkoutpage_sofortbanking>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/sofortbanking</model>
                 <title>SOFORT Banking</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_sofortbanking>
             <wirecard_checkoutpage_skrilldirect>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/skrilldirect</model>
                 <title>Skrill Direct</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_skrilldirect>
             <wirecard_checkoutpage_skrillwallet>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/skrillwallet</model>
                 <title>Skrill Digital Wallet</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_skrillwallet>
             <wirecard_checkoutpage_mpass>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/mpass</model>
                 <title>mpass</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_mpass>
             <wirecard_checkoutpage_bmc>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/bmc</model>
                 <title>Bancontact/Mister Cash</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_bmc>
             <wirecard_checkoutpage_p24>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/p24</model>
                 <title>Przelewy24</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_p24>
             <wirecard_checkoutpage_poli>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/poli</model>
                 <title>POLi</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_poli>
             <wirecard_checkoutpage_moneta>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/moneta</model>
                 <title>moneta.ru</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_moneta>
             <wirecard_checkoutpage_ekonto>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/ekonto</model>
                 <title>eKonto</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_ekonto>
             <wirecard_checkoutpage_trustly>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/trustly</model>
                 <title>Trustly</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_trustly>
             <wirecard_checkoutpage_paybox>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/paybox</model>
                 <title>paybox</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_paybox>
             <wirecard_checkoutpage_paysafecard>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/paysafecard</model>
                 <title>paysafecard</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_paysafecard>
             <wirecard_checkoutpage_quick>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/quick</model>
                 <title>@Quick</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_quick>
             <wirecard_checkoutpage_paypal>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/paypal</model>
                 <title>PayPal</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_paypal>
             <wirecard_checkoutpage_epaybg>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/epaybg</model>
                 <title>ePay.bg</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_epaybg>
             <wirecard_checkoutpage_sepadd>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/sepadd</model>
                 <title>SEPA Direct Debit</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_sepadd>
             <wirecard_checkoutpage_invoice>
-                <active>1</active>
+                <active>0</active>
                 <provider>payolution</provider>
                 <model>wirecard_checkoutpage/invoice</model>
                 <title>Invoice</title>
@@ -327,7 +327,7 @@
                 <payolution_terms>0</payolution_terms>
             </wirecard_checkoutpage_invoice>
             <wirecard_checkoutpage_invoiceb2b>
-                <active>1</active>
+                <active>0</active>
                 <provider>payolution</provider>
                 <model>wirecard_checkoutpage/invoiceb2b</model>
                 <title>Invoice B2B</title>
@@ -337,7 +337,7 @@
                 <max_order_total>3500</max_order_total>
             </wirecard_checkoutpage_invoiceb2b>
             <wirecard_checkoutpage_installment>
-                <active>1</active>
+                <active>0</active>
                 <provider>payolution</provider>
                 <model>wirecard_checkoutpage/installment</model>
                 <title>Installment</title>
@@ -348,14 +348,14 @@
                 <payolution_terms>0</payolution_terms>
             </wirecard_checkoutpage_installment>
             <wirecard_checkoutpage_voucher>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/voucher</model>
                 <title>My Voucher</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_voucher>
             <wirecard_checkoutpage_trustpay>
-                <active>1</active>
+                <active>0</active>
                 <model>wirecard_checkoutpage/trustpay</model>
                 <title>TrustPay</title>
                 <iframe>1</iframe>
