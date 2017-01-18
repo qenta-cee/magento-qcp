@@ -52,7 +52,7 @@ abstract class WirecardCEE_Stdlib_Return_ReturnAbstract
     /**
      * Validators holder
      *
-     * @var WirecardCEE_Stdlib_Validate_ValidateAbstract[]
+     * @var Zend_Validate_Abstract[]
      * @internal
      */
     protected $_validators = Array();
@@ -113,15 +113,13 @@ abstract class WirecardCEE_Stdlib_Return_ReturnAbstract
     /**
      * Adds the validator
      *
-     * @param WirecardCEE_Stdlib_Validate_ValidateAbstract $oValidator
+     * @param Zend_Validate_Abstract $oValidator
      * @param string $param
-     *
      * @return WirecardCEE_Stdlib_Return_ReturnAbstract
      */
-    public function addValidator(WirecardCEE_Stdlib_Validate_ValidateAbstract $oValidator, $param)
+    public function addValidator(Zend_Validate_Abstract $oValidator, $param)
     {
-        $this->_validators[(string) $param][] = $oValidator;
-
+        $this->_validators[(string)$param][] = $oValidator;
         return $this;
     }
 

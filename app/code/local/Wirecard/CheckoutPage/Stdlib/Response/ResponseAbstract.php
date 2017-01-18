@@ -96,13 +96,13 @@ abstract class WirecardCEE_Stdlib_Response_ResponseAbstract
     /**
      * base constructor for Response objects
      *
-     * @param ResponseInterface $response
+     * @param Zend_Http_Response $response
      *
      * @throws WirecardCEE_Stdlib_Exception_InvalidResponseException
      */
     public function __construct($response)
     {
-        if ($response instanceof ResponseInterface) {
+        if ($response instanceof Zend_Http_Response) {
             $this->_response = WirecardCEE_Stdlib_SerialApi::decode($response->getBody());
         } elseif (is_array($response)) {
             $this->_response = $response;
