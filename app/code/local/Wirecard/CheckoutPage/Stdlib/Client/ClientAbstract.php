@@ -30,10 +30,6 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-
-use GuzzleHttp\Exception\RequestException;
-use Psr\Http\Message\ResponseInterface;
-
 /**
  * @name WirecardCEE_Stdlib_Client_ClientAbstract
  * @category WirecardCEE
@@ -54,7 +50,7 @@ abstract class WirecardCEE_Stdlib_Client_ClientAbstract
     /**
      * HTTP Client
      *
-     * @var GuzzleHttp\Client
+     * @var Zend_Http_Client
      */
     protected $_httpClient;
 
@@ -235,37 +231,18 @@ abstract class WirecardCEE_Stdlib_Client_ClientAbstract
     abstract public function __construct($aConfig = null);
 
     /**
-     * setter for Guzzle Http Client.
+     * setter for Zend_Http_Client.
      * Use this if you need specific client-configuration.
-     * otherwise the clientlibrary instantiates the http client on its own.
+     * otherwise the clientlibrary instantiates the Zend_Http_Client on its own.
      *
-     * @param $httpClient
-     *
+     * @param Zend_Http_Client $httpClient
      * @return WirecardCEE_Stdlib_Client_ClientAbstract
      */
-    public function setHttpClient($httpClient)
+    public function setZendHttpClient(Zend_Http_Client $httpClient)
     {
         $this->_httpClient = $httpClient;
-
         return $this;
     }
-
-    /**
-     * private getter for the Guzzle Http Client
-     * if not set yet it will be instantiated
-     *
-     * @return GuzzleHttp\Client
-     */
-    protected function _getHttpClient()
-    {
-        if (is_null($this->_httpClient)) {
-            // @todo implement SSL check here
-            $this->_httpClient = new GuzzleHttp\Client();
-        }
-
-        return $this->_httpClient;
-    }
-
 
     /**
      * Returns the user configuration object
@@ -358,7 +335,7 @@ abstract class WirecardCEE_Stdlib_Client_ClientAbstract
      * sends the request and returns the zend http response object instance
      *
      * @throws WirecardCEE_Stdlib_Client_Exception_InvalidResponseException
-     * @return ResponseInterface
+     * @return Zend_Http_Response
      */
     protected function _send()
     {
@@ -371,7 +348,7 @@ abstract class WirecardCEE_Stdlib_Client_ClientAbstract
 
         try {
             $response = $this->_sendRequest();
-        } catch (RequestException $e) {
+        } catch (Zend_Http_Client_Exception $e) {
             throw new WirecardCEE_Stdlib_Client_Exception_InvalidResponseException($e->getMessage(), $e->getCode(), $e);
         }
 
@@ -402,21 +379,18 @@ abstract class WirecardCEE_Stdlib_Client_ClientAbstract
     /**
      * Sends the request and returns the zend http response object instance
      *
-     * @throws RequestException
-     * @return ResponseInterface
+     * @throws Zend_Http_Client_Exception
+     * @return Zend_Http_Response
      */
     protected function _sendRequest()
     {
-        $httpClient = $this->_getHttpClient();
+        $httpClient = $this->_getZendHttpClient();
+        $httpClient->setParameterPost($this->_requestData);
+        $httpClient->setConfig(Array(
+            'useragent' => $this->getUserAgentString()
+        ));
 
-        $request = $httpClient->post($this->_getRequestUrl(), [
-            'form_params' => $this->_requestData,
-            'headers'     => [
-                'User-Agent' => $this->getUserAgentString()
-            ]
-        ]);
-
-        return $request;
+        return $httpClient->request(Zend_Http_Client::POST);
     }
 
     /**
@@ -445,6 +419,25 @@ abstract class WirecardCEE_Stdlib_Client_ClientAbstract
     protected function _isFieldSet($sFieldname)
     {
         return (bool) ( isset( $this->_requestData[$sFieldname] ) && !empty( $this->_requestData[$sFieldname] ) );
+    }
+
+    /**
+     * private getter for the Zend_Http_Client
+     * if not set yet it will be instantiated
+     *
+     * @return Zend_Http_Client
+     */
+    protected function _getZendHttpClient()
+    {
+        if (is_null($this->_httpClient)) {
+            // @todo implement SSL check here
+            $this->_httpClient = new Zend_Http_Client($this->_getRequestUrl());
+        } else {
+            $this->_httpClient->resetParameters(true);
+            $this->_httpClient->setUri($this->_getRequestUrl());
+        }
+
+        return $this->_httpClient;
     }
 
     /**

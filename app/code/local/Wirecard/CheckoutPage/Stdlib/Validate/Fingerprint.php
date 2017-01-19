@@ -37,7 +37,7 @@
  * @package WirecardCEE_Stdlib
  * @subpackage Validate
  */
-class WirecardCEE_Stdlib_Validate_Fingerprint extends WirecardCEE_Stdlib_Validate_ValidateAbstract
+class WirecardCEE_Stdlib_Validate_Fingerprint extends Zend_Validate_Abstract
 {
 
     /**
