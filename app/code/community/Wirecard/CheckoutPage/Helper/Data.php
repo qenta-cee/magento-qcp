@@ -33,7 +33,7 @@
 class Wirecard_CheckoutPage_Helper_Data extends Mage_Payment_Helper_Data
 {
 
-    protected $_pluginVersion = '4.1.1';
+    protected $_pluginVersion = '4.1.2';
     protected $_pluginName = 'Wirecard/CheckoutPage';
 
     /**
