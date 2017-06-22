@@ -101,12 +101,7 @@ class Wirecard_CheckoutPage_ProcessingController extends Mage_Core_Controller_Fr
      */
     protected function _useIframe($paymentInst)
     {
-        $detectLayout = new WirecardCEE_QPay_MobileDetect();
-        /** @var Wirecard_CheckoutPage_Helper_Data $helper */
-        $helper = Mage::helper('wirecard_checkoutpage');
-        return ($paymentInst->getConfigData('iframe') &&
-            (!$helper->getConfigData('options/mobiledetect')
-                || ($helper->getConfigData('options/mobiledetect') && !$detectLayout->isMobile())));
+        return $paymentInst->getConfigData('iframe');
     }
 
     /**
