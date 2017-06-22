@@ -37,7 +37,6 @@ class Wirecard_CheckoutPage_Model_System_Config_InstallmentProviders
         $themes = array(
             array('value' => 'payolution', 'label' => 'payolution'),
             array('value' => 'ratepay', 'label' => 'RatePay'),
-            array('value' => 'ratepay', 'label' => 'Wirecard'),
         );
 
         return $themes;
