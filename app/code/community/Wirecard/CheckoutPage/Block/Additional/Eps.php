@@ -30,14 +30,17 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-class Wirecard_CheckoutPage_Model_Skrilldirect extends Wirecard_CheckoutPage_Model_Abstract
+class Wirecard_CheckoutPage_Block_Additional_Eps extends Mage_Core_Block_Template
 {
-    /**
-    * unique internal payment method identifier
-    *
-    * @var string [a-z0-9_]
-    **/
-    protected $_code = 'wirecard_checkoutpage_skrilldirect';
-    protected $_paymentMethod = WirecardCEE_Stdlib_PaymentTypeAbstract::SKRILLDIRECT;
+
+    protected function _construct()
+    {
+        parent::_construct();
+        $this->setTemplate('wirecard/checkoutpage/additional/eps.phtml');
+    }
+    public function getFinancialInstitutions()
+    {
+        return WirecardCEE_QPay_PaymentType::getFinancialInstitutions(WirecardCEE_QPay_PaymentType::EPS);
+    }
 
 }

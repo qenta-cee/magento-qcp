@@ -241,19 +241,6 @@
                             ]]>
                             </comment>
                         </sendbasketinformation>
-                        <mobiledetect translate="label,comment">
-                            <label>Device detection</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>70</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment><![CDATA[
-                            Detecting mobile browsers and setting "layout" request parameter accordingly. Forcing page redirect for mobile devices instead of iframe based checkout.
-                            ]]>
-                            </comment>
-                        </mobiledetect>
                         <layout translate="label,comment">
                             <label>Device type optimization</label>
                             <frontend_type>select</frontend_type>
@@ -981,89 +968,6 @@
                         </max_order_total>
                     </fields>
                 </wirecard_checkoutpage_sofortbanking>
-                <wirecard_checkoutpage_skrilldirect translate="label" module="wirecard_checkoutpage">
-                    <label>Wirecard Checkout Page Skrill Direct</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>1090</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <active translate="label">
-                            <label>Enabled</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                            <sort_order>20</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </active>
-                        <sort_order translate="label">
-                            <label>Sorting order number</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>30</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>This payment method will be displayed depending on the sorting order numbers of other payment methods.</comment>
-                        </sort_order>
-                        <title translate="label">
-                            <label>Name for payment method</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>40</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>The name for the payment method to be displayed in the online shop.</comment>
-                        </title>
-                        <iframe>
-                            <label>Display as iframe</label>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>50</sort_order>
-                            <source_model>adminhtml/system_config_source_enabledisable
-                            </source_model>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </iframe>
-                        <allowspecific translate="label">
-                            <label>Payment method available for</label>
-                            <frontend_type>allowspecific</frontend_type>
-                            <sort_order>70</sort_order>
-                            <source_model>adminhtml/system_config_source_payment_allspecificcountries
-                            </source_model>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </allowspecific>
-                        <specificcountry translate="label">
-                            <label>Specific countries</label>
-                            <frontend_type>multiselect</frontend_type>
-                            <sort_order>80</sort_order>
-                            <source_model>adminhtml/system_config_source_country
-                            </source_model>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </specificcountry>
-                        <min_order_total translate="label">
-                            <label>Minimum order total</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>90</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </min_order_total>
-                        <max_order_total translate="label">
-                            <label>Maximum order total</label>
-                            <frontend_type>text</frontend_type>
-                            <sort_order>100</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </max_order_total>
-                    </fields>
-                </wirecard_checkoutpage_skrilldirect>
                 <wirecard_checkoutpage_skrillwallet translate="label" module="wirecard_checkoutpage">
                     <label>Wirecard Checkout Page Skrill Digital Wallet</label>
                     <frontend_type>text</frontend_type>
@@ -1147,8 +1051,8 @@
                         </max_order_total>
                     </fields>
                 </wirecard_checkoutpage_skrillwallet>
-                <wirecard_checkoutpage_mpass translate="label" module="wirecard_checkoutpage">
-                    <label>Wirecard Checkout Page mpass</label>
+                <wirecard_checkoutpage_masterpass translate="label" module="wirecard_checkoutpage">
+                    <label>Wirecard Checkout Page masterpass</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1110</sort_order>
                     <show_in_default>1</show_in_default>
@@ -1229,7 +1133,7 @@
                             <show_in_store>0</show_in_store>
                         </max_order_total>
                     </fields>
-                </wirecard_checkoutpage_mpass>
+                </wirecard_checkoutpage_masterpass>
                 <wirecard_checkoutpage_bmc translate="label" module="wirecard_checkoutpage">
                     <label>Wirecard Checkout Page Bancontact/Mister Cash</label>
                     <frontend_type>text</frontend_type>
@@ -2326,16 +2230,6 @@
                             <show_in_store>1</show_in_store>
                             <comment>Only applicable for RatePay.</comment>
                         </currencies>
-                        <min_age translate="label,comment">
-                            <label>Minimum age</label>
-                            <frontend_type>text</frontend_type>
-                            <validate>validate-not-negative-number</validate>
-                            <sort_order>120</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>Only applicable for RatePay.</comment>
-                        </min_age>
                     </fields>
                 </wirecard_checkoutpage_invoice>
                 <wirecard_checkoutpage_invoiceb2b translate="label" module="wirecard_checkoutpage">
@@ -2529,16 +2423,6 @@
                             <show_in_store>1</show_in_store>
                             <comment>Only applicable for RatePay.</comment>
                         </currencies>
-                        <min_age translate="label,comment">
-                            <label>Minimum Age</label>
-                            <frontend_type>text</frontend_type>
-                            <validate>validate-not-negative-number</validate>
-                            <sort_order>120</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <comment>Only applicable for RatePay.</comment>
-                        </min_age>
                     </fields>
                 </wirecard_checkoutpage_installment>
                 <wirecard_checkoutpage_voucher translate="label" module="wirecard_checkoutpage">

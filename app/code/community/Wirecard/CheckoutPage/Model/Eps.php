@@ -40,4 +40,39 @@ class Wirecard_CheckoutPage_Model_Eps extends Wirecard_CheckoutPage_Model_Abstra
     protected $_code = 'wirecard_checkoutpage_eps';
     protected $_paymentMethod = WirecardCEE_Stdlib_PaymentTypeAbstract::EPS;
 
+	protected $_forceSendAdditionalData = true;
+
+    /**
+     * Assign data to info model instance
+     *
+     * @param   mixed $data
+     * @return  Mage_Payment_Model_Info
+     */
+	public function assignData($data)
+	{
+		$result = parent::assignData($data);
+		$key = 'financialInstitution';
+		if (is_array($data)) {
+			$this->getInfoInstance()->setAdditionalInformation($key, isset($data[$key]) ? $data[$key] : null);
+		}
+		elseif ($data instanceof Varien_Object) {
+			$this->getInfoInstance()->setAdditionalInformation($key, $data->getData($key));
+		}
+		$this->getInfoInstance()->save();
+		return $result;
+	}
+
+    public function getFinancialInstitution()
+    {
+        $additionalInformation = $this->getInfoInstance();
+        if($additionalInformation->hasAdditionalInformation('financialInstitution'))
+        {
+            return $additionalInformation->getAdditionalInformation('financialInstitution');
+        }
+        else
+        {
+            return null;
+        }
+    }
+
 }

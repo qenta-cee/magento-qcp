@@ -145,7 +145,6 @@
             </settings>
             <options>
                 <serviceurl>about-magento-demo-store</serviceurl>
-                <mobiledetect>1</mobiledetect>
                 <maxretries>-1</maxretries>
             </options>
             <ccardoptions>
@@ -168,6 +167,13 @@
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_cc>
+            <wirecard_checkoutpage_masterpass>
+                <active>0</active>
+                <model>wirecard_checkoutpage/masterpass</model>
+                <title>masterpass</title>
+                <iframe>1</iframe>
+                <allowspecific>0</allowspecific>
+            </wirecard_checkoutpage_masterpass>
             <wirecard_checkoutpage_ccMoto>
                 <active>0</active>
                 <model>wirecard_checkoutpage/ccMoto</model>
@@ -210,13 +216,6 @@
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_sofortbanking>
-            <wirecard_checkoutpage_skrilldirect>
-                <active>0</active>
-                <model>wirecard_checkoutpage/skrilldirect</model>
-                <title>Skrill Direct</title>
-                <iframe>1</iframe>
-                <allowspecific>0</allowspecific>
-            </wirecard_checkoutpage_skrilldirect>
             <wirecard_checkoutpage_skrillwallet>
                 <active>0</active>
                 <model>wirecard_checkoutpage/skrillwallet</model>
@@ -224,13 +223,6 @@
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_skrillwallet>
-            <wirecard_checkoutpage_mpass>
-                <active>0</active>
-                <model>wirecard_checkoutpage/mpass</model>
-                <title>mpass</title>
-                <iframe>1</iframe>
-                <allowspecific>0</allowspecific>
-            </wirecard_checkoutpage_mpass>
             <wirecard_checkoutpage_bmc>
                 <active>0</active>
                 <model>wirecard_checkoutpage/bmc</model>

@@ -30,49 +30,14 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-class Wirecard_CheckoutPage_Model_Ideal extends Wirecard_CheckoutPage_Model_Abstract
+class Wirecard_CheckoutPage_Model_Masterpass extends Wirecard_CheckoutPage_Model_Abstract
 {
     /**
     * unique internal payment method identifier
     *
     * @var string [a-z0-9_]
     **/
-    protected $_code = 'wirecard_checkoutpage_ideal';
-    protected $_paymentMethod = WirecardCEE_Stdlib_PaymentTypeAbstract::IDL;
-
-    protected $_forceSendAdditionalData = true;
-
-    /**
-     * Assign data to info model instance
-     *
-     * @param   mixed $data
-     * @return  Mage_Payment_Model_Info
-     */
-    public function assignData($data)
-    {
-        $result = parent::assignData($data);
-        $key = 'financialInstitution';
-        if (is_array($data)) {
-            $this->getInfoInstance()->setAdditionalInformation($key, isset($data[$key]) ? $data[$key] : null);
-        }
-        elseif ($data instanceof Varien_Object) {
-            $this->getInfoInstance()->setAdditionalInformation($key, $data->getData($key));
-        }
-        $this->getInfoInstance()->save();
-        return $result;
-    }
-
-    public function getFinancialInstitution()
-    {
-        $additionalInformation = $this->getInfoInstance();
-        if($additionalInformation->hasAdditionalInformation('financialInstitution'))
-        {
-            return $additionalInformation->getAdditionalInformation('financialInstitution');
-        }
-        else
-        {
-            return null;
-        }
-    }
+    protected $_code = 'wirecard_checkoutpage_masterpass';
+    protected $_paymentMethod = WirecardCEE_Stdlib_PaymentTypeAbstract::MASTERPASS;
 
 }

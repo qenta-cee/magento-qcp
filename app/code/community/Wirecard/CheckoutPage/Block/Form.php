@@ -76,6 +76,10 @@ class Wirecard_CheckoutPage_Block_Form extends Mage_Payment_Block_Form
             case 'WIRECARD_CHECKOUTPAGE_INVOICEB2B':
                 return 'wirecard_checkoutpage/additional_InvoiceB2b';
                 break;
+            case 'WIRECARD_CHECKOUTPAGE_EPS':
+                return 'wirecard_checkoutpage/additional_Eps';
+            case 'WIRECARD_CHECKOUTPAGE_IDEAL':
+                return 'wirecard_checkoutpage/additional_Ideal';
             default:
                 return false;
                 break;
