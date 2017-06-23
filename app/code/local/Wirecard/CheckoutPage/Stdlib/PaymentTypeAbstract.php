@@ -51,6 +51,7 @@ abstract class WirecardCEE_Stdlib_PaymentTypeAbstract
     const INVOICE = 'INVOICE';
     const MAESTRO = 'MAESTRO';
     const MASTERPASS = 'MASTERPASS';
+    const MPASS = 'MPASS';
     const MONETA = 'MONETA';
     const P24 = 'PRZELEWY24';
     const PAYPAL = 'PAYPAL';
@@ -61,6 +62,7 @@ abstract class WirecardCEE_Stdlib_PaymentTypeAbstract
     const SEPADD = 'SEPA-DD';
     const ELV = 'ELV';
     const SKRILLWALLET = 'SKRILLWALLET';
+    const SKRILLDIRECT = 'SKRILLDIRECT';
     const SOFORTUEBERWEISUNG = 'SOFORTUEBERWEISUNG';
     const TATRAPAY = 'TATRAPAY';
     const TRUSTLY = 'TRUSTLY';
