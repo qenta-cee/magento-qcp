@@ -442,10 +442,6 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
 			return false;
 		}
 
-		if ( $quote->getQuoteCurrencyCode() != 'EUR' ) {
-			return false;
-		}
-
 		return parent::isAvailable( $quote );
 	}
 
