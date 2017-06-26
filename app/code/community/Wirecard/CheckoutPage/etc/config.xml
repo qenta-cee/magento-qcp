@@ -170,7 +170,7 @@
             <wirecard_checkoutpage_masterpass>
                 <active>0</active>
                 <model>wirecard_checkoutpage/masterpass</model>
-                <title>masterpass</title>
+                <title>Masterpass</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_masterpass>
