@@ -30,33 +30,64 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-class Wirecard_CheckoutPage_Model_Autoloader extends Mage_Core_Model_Observer
+
+/**
+ * @name WirecardCEE_QMore_DataStorage_Response_Initiation
+ * @category WirecardCEE
+ * @package WirecardCEE_QMore
+ * @subpackage DataStorage_Response
+ */
+class WirecardCEE_QMore_DataStorage_Response_Initiation extends WirecardCEE_QMore_Response_ResponseAbstract
 {
-    protected static $registered = false;
+    /**
+     * Storage id
+     *
+     * @staticvar string
+     * @internal
+     */
+    protected static $STORAGE_ID = 'storageId';
 
-    public function addAutoloader(Varien_Event_Observer $observer)
+    /**
+     * Javascript url
+     *
+     * @staticvar string
+     * @internal
+     */
+    protected static $JAVASCRIPT_URL = 'javascriptUrl';
+
+    /**
+     * getter for the Response status
+     * values: 0 .
+     * .. success
+     * 1 ... failure
+     *
+     * @return int
+     */
+    public function getStatus()
     {
-        // this should not be necessary. Just being done as a check
-        if (self::$registered) {
-            return;
-        }
-        spl_autoload_register(array($this, 'autoload'), false, true);
-
-        self::$registered = true;
+        return ( $this->_getField(self::$STORAGE_ID) ) ? self::STATE_SUCCESS : self::STATE_FAILURE;
     }
 
-    public function autoload($class)
+    /**
+     * getter for storageId returned by the dataStorage
+     *
+     * @return string
+     */
+    public function getStorageId()
     {
-        // rewrite class filename, avoid conflicts with installed old plugin, which resides under WirecardCEE
-        if (preg_match('/^WirecardCEE_/', $class)) {
-            if(defined('COMPILER_INCLUDE_PATH')) {
-                //$class = str_replace('WirecardCEE', 'Wirecard_CheckoutPage', $class);
-                $classFile = COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . $class . '.php';
-            } else {
-                //$class = str_replace('WirecardCEE', 'Wirecard' . DIRECTORY_SEPARATOR . 'CheckoutPage', $class);
-                $classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ', $class))) . '.php';
-            }
-            include $classFile;
-        }
+        return $this->_getField(self::$STORAGE_ID);
+    }
+
+    /**
+     * getter for javascriptUrl returned by the dataStorage
+     *
+     * the script behind this url is used by the shopsystem to save
+     * paymentInformation in the dataStorage
+     *
+     * @return string
+     */
+    public function getJavascriptUrl()
+    {
+        return $this->_getField(self::$JAVASCRIPT_URL);
     }
 }

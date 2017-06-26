@@ -30,33 +30,66 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-class Wirecard_CheckoutPage_Model_Autoloader extends Mage_Core_Model_Observer
+
+/**
+ * @name WirecardCEE_QMore_Response_Backend_Order_Payment_Ideal
+ * @category WirecardCEE
+ * @package WirecardCEE_QMore
+ * @subpackage Response_Backend_Order_Payment
+ */
+class WirecardCEE_QMore_Response_Backend_Order_Payment_Ideal extends WirecardCEE_QMore_Response_Backend_Order_Payment
 {
-    protected static $registered = false;
+    /**
+     * iDEAL consumer name
+     *
+     * @staticvar string
+     * @internal
+     */
+    private static $CONSUMER_NAME = 'idealConsumerName';
 
-    public function addAutoloader(Varien_Event_Observer $observer)
+    /**
+     * iDEAL consumer city
+     *
+     * @staticvar string
+     * @internal
+     */
+    private static $CONSUMER_CITY = 'idealConsumerCity';
+
+    /**
+     * iDEAL consumer account number
+     *
+     * @staticvar string
+     * @internal
+     */
+    private static $CONSUMER_ACCOUNT_NUMBER = 'idealConsumerAccountNumber';
+
+    /**
+     * getter for iDEAL consumer Name
+     *
+     * @return string
+     */
+    public function getConsumerName()
     {
-        // this should not be necessary. Just being done as a check
-        if (self::$registered) {
-            return;
-        }
-        spl_autoload_register(array($this, 'autoload'), false, true);
-
-        self::$registered = true;
+        return $this->_getField(self::$CONSUMER_NAME);
     }
 
-    public function autoload($class)
+    /**
+     * getter for iDEAL consumer City
+     *
+     * @return string
+     */
+    public function getConsumerCity()
     {
-        // rewrite class filename, avoid conflicts with installed old plugin, which resides under WirecardCEE
-        if (preg_match('/^WirecardCEE_/', $class)) {
-            if(defined('COMPILER_INCLUDE_PATH')) {
-                //$class = str_replace('WirecardCEE', 'Wirecard_CheckoutPage', $class);
-                $classFile = COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . $class . '.php';
-            } else {
-                //$class = str_replace('WirecardCEE', 'Wirecard' . DIRECTORY_SEPARATOR . 'CheckoutPage', $class);
-                $classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ', $class))) . '.php';
-            }
-            include $classFile;
-        }
+        return $this->_getField(self::$CONSUMER_CITY);
+    }
+
+    /**
+     * getter for iDEAL consumer account-number
+     *
+     * @return string
+     */
+    public function getConsumerAccountNumber()
+    {
+        return $this->_getField(self::$CONSUMER_ACCOUNT_NUMBER);
     }
 }

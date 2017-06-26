@@ -30,33 +30,71 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-class Wirecard_CheckoutPage_Model_Autoloader extends Mage_Core_Model_Observer
+
+/**
+ * @name WirecardCEE_QMore_Error
+ * @category WirecardCEE
+ * @package WirecardCEE_QMore
+ */
+class WirecardCEE_QMore_Error extends WirecardCEE_Stdlib_Error
 {
-    protected static $registered = false;
+    /**
+     * Error code
+     *
+     * @var int
+     */
+    protected $_errorCode = null;
 
-    public function addAutoloader(Varien_Event_Observer $observer)
+    /**
+     * Payment system message
+     *
+     * @var string
+     */
+    protected $_paySysMessage = null;
+
+    /**
+     * WirecardCEE_QMore_Error contructor
+     *
+     * @param int $errorCode
+     * @param string $message
+     */
+    public function __construct($errorCode, $message)
     {
-        // this should not be necessary. Just being done as a check
-        if (self::$registered) {
-            return;
-        }
-        spl_autoload_register(array($this, 'autoload'), false, true);
-
-        self::$registered = true;
+        $this->_errorCode = $errorCode;
+        $this->setMessage($message);
     }
 
-    public function autoload($class)
+    /**
+     * Error code getter
+     *
+     * @return int
+     */
+    public function getErrorCode()
     {
-        // rewrite class filename, avoid conflicts with installed old plugin, which resides under WirecardCEE
-        if (preg_match('/^WirecardCEE_/', $class)) {
-            if(defined('COMPILER_INCLUDE_PATH')) {
-                //$class = str_replace('WirecardCEE', 'Wirecard_CheckoutPage', $class);
-                $classFile = COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . $class . '.php';
-            } else {
-                //$class = str_replace('WirecardCEE', 'Wirecard' . DIRECTORY_SEPARATOR . 'CheckoutPage', $class);
-                $classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ', $class))) . '.php';
-            }
-            include $classFile;
-        }
+        return $this->_errorCode;
+    }
+
+    /**
+     * Payment system message setter
+     *
+     * @param string $paySysMessage
+     *
+     * @return WirecardCEE_QMore_Error
+     */
+    public function setPaySysMessage($paySysMessage)
+    {
+        $this->_paySysMessage = (string) $paySysMessage;
+
+        return $this;
+    }
+
+    /**
+     * Payment system message getter
+     *
+     * @return string
+     */
+    public function getPaySysMessage()
+    {
+        return (string) $this->_paySysMessage;
     }
 }

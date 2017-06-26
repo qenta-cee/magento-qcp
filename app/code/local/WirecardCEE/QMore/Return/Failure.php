@@ -30,33 +30,51 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-class Wirecard_CheckoutPage_Model_Autoloader extends Mage_Core_Model_Observer
+
+/**
+ * @name WirecardCEE_QMore_Return_Failure
+ * @category WirecardCEE
+ * @package WirecardCEE_QMore
+ * @subpackage Return
+ */
+class WirecardCEE_QMore_Return_Failure extends WirecardCEE_Stdlib_Return_Failure
 {
-    protected static $registered = false;
 
-    public function addAutoloader(Varien_Event_Observer $observer)
+    /**
+     * Returns the number of errors
+     *
+     * @return int
+     */
+    public function getNumberOfErrors()
     {
-        // this should not be necessary. Just being done as a check
-        if (self::$registered) {
-            return;
-        }
-        spl_autoload_register(array($this, 'autoload'), false, true);
-
-        self::$registered = true;
+        return (int) $this->__get(self::$ERRORS);
     }
 
-    public function autoload($class)
+    /**
+     * Returns all the errors
+     * return Array
+     */
+    public function getErrors()
     {
-        // rewrite class filename, avoid conflicts with installed old plugin, which resides under WirecardCEE
-        if (preg_match('/^WirecardCEE_/', $class)) {
-            if(defined('COMPILER_INCLUDE_PATH')) {
-                //$class = str_replace('WirecardCEE', 'Wirecard_CheckoutPage', $class);
-                $classFile = COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . $class . '.php';
-            } else {
-                //$class = str_replace('WirecardCEE', 'Wirecard' . DIRECTORY_SEPARATOR . 'CheckoutPage', $class);
-                $classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ', $class))) . '.php';
+        if (empty( $this->_errors )) {
+            $errorList = Array();
+
+            foreach ($this->__get(self::$ERROR) as $error) {
+                $errorCode       = $error[self::$ERROR_ERROR_CODE];
+                $message         = $error[self::$ERROR_MESSAGE];
+                $consumerMessage = $error[self::$ERROR_CONSUMER_MESSAGE];
+                $paySysMessage   = $error[self::$ERROR_PAY_SYS_MESSAGE];
+
+                $errorObject = new WirecardCEE_QMore_Error($errorCode, $message);
+                $errorObject->setPaySysMessage($paySysMessage);
+                $errorObject->setConsumerMessage($consumerMessage);
+
+                array_push($errorList, $errorObject);
             }
-            include $classFile;
+
+            $this->_errors = $errorList;
         }
+
+        return $this->_errors;
     }
 }

@@ -30,33 +30,89 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-class Wirecard_CheckoutPage_Model_Autoloader extends Mage_Core_Model_Observer
+
+/**
+ * @name WirecardCEE_QMore_Response_Backend_Order_OrderIterator
+ * @category WirecardCEE
+ * @package WirecardCEE_QMore
+ * @subpackage Response_Backend_Order
+ * @abstract
+ */
+abstract class WirecardCEE_QMore_Response_Backend_Order_OrderIterator implements Iterator
 {
-    protected static $registered = false;
+    /**
+     * Internal position holder
+     *
+     * @var int
+     */
+    protected $_position;
 
-    public function addAutoloader(Varien_Event_Observer $observer)
+    /**
+     *¸Internal objects holder
+     *
+     * @var array
+     */
+    protected $_objectArray;
+
+    /**
+     * Constructor
+     *
+     * @param array $objectArray objects to iterate through
+     */
+    public function __construct(array $objectArray)
     {
-        // this should not be necessary. Just being done as a check
-        if (self::$registered) {
-            return;
-        }
-        spl_autoload_register(array($this, 'autoload'), false, true);
-
-        self::$registered = true;
+        $this->_position    = 0;
+        $this->_objectArray = $objectArray;
     }
 
-    public function autoload($class)
+    /**
+     * resets the current position to 0(first entry)
+     */
+    public function rewind()
     {
-        // rewrite class filename, avoid conflicts with installed old plugin, which resides under WirecardCEE
-        if (preg_match('/^WirecardCEE_/', $class)) {
-            if(defined('COMPILER_INCLUDE_PATH')) {
-                //$class = str_replace('WirecardCEE', 'Wirecard_CheckoutPage', $class);
-                $classFile = COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . $class . '.php';
-            } else {
-                //$class = str_replace('WirecardCEE', 'Wirecard' . DIRECTORY_SEPARATOR . 'CheckoutPage', $class);
-                $classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ', $class))) . '.php';
-            }
-            include $classFile;
-        }
+        $this->_position = 0;
+    }
+
+    /**
+     * Returns the current object
+     *
+     * @return Object
+     */
+    public function current()
+    {
+        return $this->_objectArray[$this->_position];
+    }
+
+    /**
+     * Returns the current position
+     *
+     * @return int
+     */
+    public function key()
+    {
+        return (int) $this->_position;
+    }
+
+    /**
+     * go to the next position
+     */
+    public function next()
+    {
+        ++ $this->_position;
+    }
+
+    /**
+     * checks if position is valid
+     *
+     * @return bool
+     */
+    public function valid()
+    {
+        return (bool) isset( $this->_objectArray[$this->_position] );
+    }
+
+    public function getArray()
+    {
+        return $this->_objectArray;
     }
 }

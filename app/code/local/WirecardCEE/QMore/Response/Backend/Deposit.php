@@ -30,33 +30,30 @@
  * Please do not use the plugin if you do not agree to these terms of use!
  */
 
-class Wirecard_CheckoutPage_Model_Autoloader extends Mage_Core_Model_Observer
+
+/**
+ * @name WirecardCEE_QMore_Response_Backend_Deposit
+ * @category WirecardCEE
+ * @package WirecardCEE_QMore
+ * @subpackage Response_Backend
+ */
+class WirecardCEE_QMore_Response_Backend_Deposit extends WirecardCEE_QMore_Response_Backend_ResponseAbstract
 {
-    protected static $registered = false;
+    /**
+     * Payment number
+     *
+     * @staticvar string
+     * @internal
+     */
+    private static $PAYMENT_NUMBER = 'paymentNumber';
 
-    public function addAutoloader(Varien_Event_Observer $observer)
+    /**
+     * getter for the returned paymentNumber
+     *
+     * @return string
+     */
+    public function getPaymentNumber()
     {
-        // this should not be necessary. Just being done as a check
-        if (self::$registered) {
-            return;
-        }
-        spl_autoload_register(array($this, 'autoload'), false, true);
-
-        self::$registered = true;
-    }
-
-    public function autoload($class)
-    {
-        // rewrite class filename, avoid conflicts with installed old plugin, which resides under WirecardCEE
-        if (preg_match('/^WirecardCEE_/', $class)) {
-            if(defined('COMPILER_INCLUDE_PATH')) {
-                //$class = str_replace('WirecardCEE', 'Wirecard_CheckoutPage', $class);
-                $classFile = COMPILER_INCLUDE_PATH . DIRECTORY_SEPARATOR . $class . '.php';
-            } else {
-                //$class = str_replace('WirecardCEE', 'Wirecard' . DIRECTORY_SEPARATOR . 'CheckoutPage', $class);
-                $classFile = str_replace(' ', DIRECTORY_SEPARATOR, ucwords(str_replace('_', ' ', $class))) . '.php';
-            }
-            include $classFile;
-        }
+        return $this->_getField(self::$PAYMENT_NUMBER);
     }
 }

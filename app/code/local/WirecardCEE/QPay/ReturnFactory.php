@@ -106,7 +106,7 @@ class WirecardCEE_QPay_ReturnFactory extends WirecardCEE_Stdlib_ReturnFactoryAbs
      * @param string[] $return
      * @param string $secret
      *
-     * @return WirecardCEE_QPay_Return_Success|WirecardCEE_QPay_Return_Success_CreditCard|WirecardCEE_QPay_Return_Success_Ideal|WirecardCEE_QPay_Return_Success_PayPal|WirecardCEE_QPay_Return_Success_Sofortueberweisung|WirecardCEE_QPay_Return_Success_Masterpass
+     * @return WirecardCEE_QPay_Return_Success|WirecardCEE_QPay_Return_Success_CreditCard|WirecardCEE_QPay_Return_Success_Ideal|WirecardCEE_QPay_Return_Success_PayPal|WirecardCEE_QPay_Return_Success_Sofortueberweisung
      * @throws WirecardCEE_QPay_Exception_InvalidResponseException
      */
     protected static function _getSuccessInstance($return, $secret)
@@ -123,9 +123,6 @@ class WirecardCEE_QPay_ReturnFactory extends WirecardCEE_Stdlib_ReturnFactoryAbs
                 break;
             case WirecardCEE_Stdlib_PaymentTypeAbstract::PAYPAL:
                 return new WirecardCEE_QPay_Return_Success_PayPal($return, $secret);
-                break;
-            case WirecardCEE_Stdlib_PaymentTypeAbstract::MASTERPASS:
-                return new WirecardCEE_QPay_Return_Success_Masterpass($return, $secret);
                 break;
             case WirecardCEE_Stdlib_PaymentTypeAbstract::SOFORTUEBERWEISUNG:
                 return new WirecardCEE_QPay_Return_Success_Sofortueberweisung($return, $secret);
