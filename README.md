@@ -1,8 +1,8 @@
 # Wirecard Checkout Page extension for Magento
 
 [![License](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/wirecard/Magento-WCP/master/LICENSE)
-[![Magento Community Edition 1.9.3.1](https://img.shields.io/badge/Magento_CE-v1.9.2.3-green.svg)](https://www.magento.com/)
-[![PHP v5.3](https://img.shields.io/badge/php-v5.3-yellow.svg)](http://www.php.net)
+[![Magento Community Edition 1.9.3.1](https://img.shields.io/badge/Magento_CE-v1.9.3.1-green.svg)](https://www.magento.com/)
+[![PHP v5.6](https://img.shields.io/badge/php-v5.6-yellow.svg)](http://www.php.net)
 
 Wirecard Checkout Page extension for Magento. 
 
@@ -27,4 +27,3 @@ Wirecard Checkout Page offers:
 - Web interface for managing payments (approvals, cancelations, credits, etc.).
 - Benefit from Wirecard Bank´s license to conclude credit card acceptance contracts (acquiring) and issue credit cards.
 - With Wirecard Collecting only a single contract is required for payouts within various payment methods.
-- Support of recurring payments (subscriptions, one-click checkout).
