@@ -1052,7 +1052,7 @@
                     </fields>
                 </wirecard_checkoutpage_skrillwallet>
                 <wirecard_checkoutpage_masterpass translate="label" module="wirecard_checkoutpage">
-                    <label>Wirecard Checkout Page masterpass</label>
+                    <label>Wirecard Checkout Page Masterpass</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1110</sort_order>
                     <show_in_default>1</show_in_default>
