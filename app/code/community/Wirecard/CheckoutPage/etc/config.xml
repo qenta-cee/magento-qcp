@@ -34,7 +34,7 @@
 <config>
     <modules>
         <wirecard_checkoutpage>
-            <version>4.2.1</version>
+            <version>4.2.2</version>
         </wirecard_checkoutpage>
     </modules>
     <global>
