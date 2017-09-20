@@ -212,7 +212,7 @@
             <wirecard_checkoutpage_sofortbanking>
                 <active>0</active>
                 <model>wirecard_checkoutpage/sofortbanking</model>
-                <title>SOFORT Banking</title>
+                <title>Online bank transfer.</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_sofortbanking>
