@@ -86,5 +86,11 @@
                    template="wirecard/checkoutpage/return.phtml"/>
         </reference>
     </wirecard_checkoutpage_processing_return>
+    <checkout_onepage_index>
+        <reference name="before_body_end">
+            <block type="wirecard_checkoutpage/additional_script" name="wirecard_checkoutpage_page_rp_js"
+                   template="wirecard/checkoutpage/additional/script.phtml"/>
+        </reference>
+    </checkout_onepage_index>
 
 </layout>

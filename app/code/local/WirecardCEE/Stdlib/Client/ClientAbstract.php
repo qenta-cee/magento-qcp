@@ -292,14 +292,6 @@ abstract class WirecardCEE_Stdlib_Client_ClientAbstract
         return (array) $this->_requestData;
     }
 
-    /**
-     * Destructor
-     */
-    public function __destruct()
-    {
-        unset( $this );
-    }
-
     /**************************
      *   PROTECTED METHODS    *
      **************************/

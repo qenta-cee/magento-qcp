@@ -52,7 +52,7 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
 	protected $_defaultLocale = 'en';
 
 	protected $_order;
-	protected $_pluginVersion = '4.2.0';
+	protected $_pluginVersion = '4.2.2';
 	protected $_pluginName = 'Wirecard/CheckoutPage';
 
 	protected $_formBlockType = 'wirecard_checkoutpage/form';
@@ -117,6 +117,7 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
 		$order = $this->getOrder();
 		/** @var Wirecard_CheckoutPage_Helper_Data $helper */
 		$helper = Mage::helper( 'wirecard_checkoutpage' );
+        $session = Mage::getModel('customer/session');
 
 		$precision = 2;
 
@@ -152,6 +153,11 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
 		     ->setServiceUrl( $helper->getConfigData( 'options/serviceurl' ) )
 		     ->createConsumerMerchantCrmId( $this->getOrder()->getCustomerEmail() )
 		     ->setConsumerData( $this->_getConsumerData() );
+
+        if (strlen($session->getData('wirecard_cp_consumerDeviceId'))) {
+            $init->consumerDeviceId = $session->getData('wirecard_cp_consumerDeviceId');
+            $session->unsetData('wirecard_cp_consumerDeviceId');
+        }
 
         if ($paymenttype == WirecardCEE_Stdlib_PaymentTypeAbstract::MASTERPASS) {
             $init->setShippingProfile('NO_SHIPPING');
