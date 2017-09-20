@@ -29,8 +29,8 @@
  * By installing the plugin into the shop system the customer agrees to these terms of use.
  * Please do not use the plugin if you do not agree to these terms of use!
  */
-
-echo 'Running This Upgrade: '.get_class($this)."\n <br /> \n";die;
+/*
+echo 'Running This Upgrade: '.get_class($this)."\n <br /> \n";
 $installer = $this;
 $installer->startSetup();
 
@@ -70,4 +70,4 @@ $attribute->setData("used_in_forms", $used_in_forms)
     ->setData("sort_order", 999);
 $attribute->save();
 
-$installer->endSetup();
+$installer->endSetup();*/
