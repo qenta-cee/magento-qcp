@@ -279,13 +279,6 @@
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_paysafecard>
-            <wirecard_checkoutpage_quick>
-                <active>0</active>
-                <model>wirecard_checkoutpage/quick</model>
-                <title>@Quick</title>
-                <iframe>1</iframe>
-                <allowspecific>0</allowspecific>
-            </wirecard_checkoutpage_quick>
             <wirecard_checkoutpage_paypal>
                 <active>0</active>
                 <model>wirecard_checkoutpage/paypal</model>
