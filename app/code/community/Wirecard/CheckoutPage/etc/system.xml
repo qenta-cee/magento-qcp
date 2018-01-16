@@ -886,7 +886,7 @@
                     </fields>
                 </wirecard_checkoutpage_tatrapay>
                 <wirecard_checkoutpage_sofortbanking translate="label" module="wirecard_checkoutpage">
-                    <label>Wirecard Checkout Page Online bank transfer.</label>
+                    <label>Wirecard Checkout Page Pay now. Online bank transfer</label>
                     <frontend_type>text</frontend_type>
                     <sort_order>1080</sort_order>
                     <show_in_default>1</show_in_default>
