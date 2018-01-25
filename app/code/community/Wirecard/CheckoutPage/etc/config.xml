@@ -34,7 +34,7 @@
 <config>
     <modules>
         <Wirecard_CheckoutPage>
-            <version>4.2.7</version>
+            <version>4.2.6</version>
         </Wirecard_CheckoutPage>
     </modules>
     <global>
@@ -212,7 +212,7 @@
             <wirecard_checkoutpage_sofortbanking>
                 <active>0</active>
                 <model>wirecard_checkoutpage/sofortbanking</model>
-                <title>Pay now. Online bank transfer</title>
+                <title>Online bank transfer.</title>
                 <iframe>1</iframe>
                 <allowspecific>0</allowspecific>
             </wirecard_checkoutpage_sofortbanking>
