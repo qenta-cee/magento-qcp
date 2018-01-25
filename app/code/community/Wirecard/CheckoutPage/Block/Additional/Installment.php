@@ -81,8 +81,8 @@ class Wirecard_CheckoutPage_Block_Additional_Installment extends Mage_Core_Block
 
     public function getPaymentProvider()
     {
-        $invoice = new Wirecard_CheckoutPage_Model_Installment();
-        return $invoice->getConfigData('provider');
+        $installment = new Wirecard_CheckoutPage_Model_Installment();
+        return $installment->getConfigData('provider');
     }
 
     public function getConsumerDeviceId() {
