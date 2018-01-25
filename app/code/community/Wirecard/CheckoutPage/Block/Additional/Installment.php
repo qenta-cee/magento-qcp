@@ -79,4 +79,24 @@ class Wirecard_CheckoutPage_Block_Additional_Installment extends Mage_Core_Block
         return $this->getCustomerDobPart('dd');
     }
 
+    public function getPaymentProvider()
+    {
+        $invoice = new Wirecard_CheckoutPage_Model_Installment();
+        return $invoice->getConfigData('provider');
+    }
+
+    public function getConsumerDeviceId() {
+        $session = Mage::getModel('customer/session');
+
+        if (strlen($session->getData('wirecard_cp_consumerDeviceId'))) {
+            return $session->getData('wirecard_cp_consumerDeviceId');
+        }
+        else {
+            $timestamp = microtime();
+            $consumerDeviceId = md5(Mage::helper('wirecard_checkoutpage')->getConfigData('settings/customer_id') . "_" . $timestamp);
+            $session->setData('wirecard_cp_consumerDeviceId', $consumerDeviceId);
+            return $consumerDeviceId;
+        }
+    }
+
 }
