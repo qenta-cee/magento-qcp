@@ -279,7 +279,13 @@ abstract class Wirecard_CheckoutPage_Model_Abstract extends Mage_Payment_Model_M
 	 * @return string
 	 */
 	protected function getOrderReference() {
-		return sprintf( '%010d', $this->getOrder()->getRealOrderId() );
+		$orderIncrementId = $this->getOrder()->getRealOrderId();
+		if ( ! is_numeric( $orderIncrementId ))
+		{
+		    return $orderIncrementId;
+		}
+
+		return sprintf( '%010d', $orderIncrementId );
 	}
 
 	/**
