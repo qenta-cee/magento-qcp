@@ -1,6 +1,6 @@
 {
     "name": "wirecard/magento-wcp",
-    "license": "GPL-2.0",
+    "license": "GPL-2.0-only",
     "type": "magento-module",
     "description": "Wirecard Checkout Page extension for Magento",
     "keywords": ["wirecard", "checkout", "page", "payment", "magento"],

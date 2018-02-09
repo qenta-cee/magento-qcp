@@ -39,7 +39,24 @@ class Wirecard_CheckoutPage_Block_Additional_Script extends Mage_Core_Block_Temp
         $this->setTemplate('wirecard/checkoutpage/additional/invoice.phtml');
     }
 
+    public function isRatepayPaymentProvider()
+    {
+        $installment = new Wirecard_CheckoutPage_Model_Installment();
+        $invoice = new Wirecard_CheckoutPage_Model_Invoice();
 
+        $payments = Mage::getSingleton('payment/config')->getActiveMethods();
+        $methods = array();
+
+        foreach ($payments as $paymentCode=>$paymentModel) {
+            $methods[] = $paymentCode;
+        }
+
+        $installment_active = in_array('wirecard_checkoutpage_installment', $methods);
+        $invoice_active = in_array('wirecard_checkoutpage_invoice', $methods);
+
+
+        return (($installment->getConfigData('provider') == "ratepay" && $installment_active) || ($invoice->getConfigData('provider') == "ratepay"  && $invoice_active));
+    }
 
     public function getConsumerDeviceId() {
         $session = Mage::getModel('customer/session');
