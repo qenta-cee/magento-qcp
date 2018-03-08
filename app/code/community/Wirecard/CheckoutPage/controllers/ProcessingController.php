@@ -349,6 +349,8 @@ class Wirecard_CheckoutPage_ProcessingController extends Mage_Core_Controller_Fr
                         ->addObject($invoice)
                         ->addObject($invoice->getOrder())
                         ->save();
+
+                    $invoice->sendEmail();
                 }
                 // send new order email to customer
                 $order->sendNewOrderEmail();
