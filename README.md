@@ -12,6 +12,27 @@ If you have any questions, please contact shop-systems-support@wirecard.com
 
 ----
 
+We would like to inform you that on June 1, 2020 all versions of Magento 1 will reach their end of life, as announced by Adobe.  
+
+It is thus necessary to migrate to Magento 2 or another shop system platform before June 1, 2020.
+
+We support the following shop systems with our shop extensions:
+* Magento 2
+* OpenCart
+* OXID
+* PrestaShop
+* Salesforce Commerce Cloud
+* SAP Commerce
+* Shopify
+* Shopware
+* WooCommerce
+
+You can find details on all our shop extensions [here](https://doc.wirecard.com/ShopSystems.html).
+
+*Note: If you do not migrate from Magento 1, you may not comply with PCI DSS security standards.*
+
+----
+
 Wirecard Checkout Page extension for Magento. 
 
 Our [Online Guides](https://guides.wirecard.at/) provide further information on payment methods and additional features. Please observe our [terms of use](https://guides.wirecard.at/shop_plugins:info#terms_of_use) regarding plugins.
