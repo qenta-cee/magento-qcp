@@ -7,7 +7,7 @@
 ----
 **_IMPORTANT_** 
 
-We would like to inform you that on June 1, 2020 all versions of Magento 1 will reach their end of life, as announced by Adobe. 
+We would like to inform you that on June 1, 2020 all versions of Magento 1 will reach their end of life, as [announced](https://magento.com/blog/magento-news/supporting-magento-1-through-june-2020) by Adobe. 
 
 It is thus necessary to migrate to Magento 2 or another shop system platform before June 1, 2020.
 
