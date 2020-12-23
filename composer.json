@@ -1,12 +1,12 @@
 {
-    "name": "wirecard/magento-wcp",
+    "name": "qenta/magento-wcp",
     "license": "GPL-2.0-only",
     "type": "magento-module",
-    "description": "Wirecard Checkout Page extension for Magento",
-    "keywords": ["wirecard", "checkout", "page", "payment", "magento"],
-    "homepage": "https://www.wirecard.at",
+    "description": "Qenta Checkout Page extension for Magento",
+    "keywords": ["qenta", "checkout", "page", "payment", "magento"],
+    "homepage": "https://www.qenta-cee.at",
     "support": {
-        "email": "support.at@wirecard.com",
+        "email": "support@qenta.com",
         "docs": "https://guides.wirecard.com"
     },
     "require": {
