@@ -7,10 +7,10 @@
     "homepage": "https://www.qenta-cee.at",
     "support": {
         "email": "support@qenta.com",
-        "docs": "https://guides.wirecard.com"
+        "docs": "https://guides.qenta.com"
     },
     "require": {
-        "php": ">=5.3",
+        "php": "~5.3.0|~7.2.5|~7.3.0",
         "magento-hackathon/magento-composer-installer": "*"
     }
 }

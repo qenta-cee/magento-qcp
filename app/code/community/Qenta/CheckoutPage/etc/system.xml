@@ -3,7 +3,7 @@
 /**
  * Shop System Plugins - Terms of Use
  *
- * The plugins offered are provided free of charge by Qenta Central Eastern Europe GmbH
+ * The plugins offered are provided free of charge by QENTA Payment CEE GmbH
  * (abbreviated to Qenta CEE) and are explicitly not part of the Qenta CEE range of
  * products and services.
  *
@@ -75,7 +75,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[
-                                Customer number you received from Qenta (customerId, i.e. D2#####). <a href="https://guides.wirecard.at/request_parameters#customerid" target="_blank">More information.</a>
+                                Customer number you received from Qenta (customerId, i.e. D2#####). <a href="https://guides.qenta.com/request_parameters#customerid" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </customer_id>
@@ -88,7 +88,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                Shop identifier in case of more than one shop. <a href="https://guides.wirecard.at/request_parameters#shopid" target="_blank">More information.</a>
+                                Shop identifier in case of more than one shop. <a href="https://guides.qenta.com/request_parameters#shopid" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </shop_id>
@@ -101,7 +101,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                String which you received from Qenta for signing and validating data to prove their authenticity. <a href="https://guides.wirecard.at/security:start#secret_and_fingerprint" target="_blank">More information.</a>
+                                String which you received from Qenta for signing and validating data to prove their authenticity. <a href="https://guides.qenta.com/security:start#secret_and_fingerprint" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </secret>
@@ -134,7 +134,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                URL on the payment page which leads to the imprint page of the online shop. <a href="https://guides.wirecard.at/doku.php/request_parameters#serviceurl" target="_blank">More information.</a>
+                                URL on the payment page which leads to the imprint page of the online shop. <a href="https://guides.qenta.com/doku.php/request_parameters#serviceurl" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </serviceurl>
@@ -147,7 +147,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                Text displayed during the payment process, i.e. "Thank you for ordering in xy-shop". <a href="https://guides.wirecard.at/request_parameters#displaytext" target="_blank">More information.</a>
+                                Text displayed during the payment process, i.e. "Thank you for ordering in xy-shop". <a href="https://guides.qenta.com/request_parameters#displaytext" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </displaytext>
@@ -161,7 +161,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                URL to an image/logo which is displayed during the payment process in Qenta Checkout Page. <a href="https://guides.wirecard.at/request_parameters#imageurl" target="_blank">More information.</a>
+                                URL to an image/logo which is displayed during the payment process in Qenta Checkout Page. <a href="https://guides.qenta.com/request_parameters#imageurl" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </imageurl>
@@ -174,7 +174,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                Background color for the image containing the credit card brand logos. <a href="https://guides.wirecard.at/doku.php/wcp:customization_desktop" target="_blank">More information.</a>
+                                Background color for the image containing the credit card brand logos. <a href="https://guides.qenta.com/doku.php/wcp:customization_desktop" target="_blank">More information.</a>
                                 ]]>
                             </comment>
                         </bgcolor>
@@ -211,7 +211,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[
-                            Receiving notification by e-mail regarding the orders of your consumers if an error occurred in the communication between Qenta and your online shop. <a href="https://guides.wirecard.at/request_parameters#confirmMail" target="_blank">More information</a>. Please contact our <a href="https://guides.wirecard.at/sales" target="_blank">sales teams</a> to activate this feature.
+                            Receiving notification by e-mail regarding the orders of your consumers if an error occurred in the communication between Qenta and your online shop. <a href="https://guides.qenta.com/request_parameters#confirmMail" target="_blank">More information</a>. Please contact our <a href="https://guides.qenta.com/sales" target="_blank">sales teams</a> to activate this feature.
                             ]]>
                             </comment>
                         </sendconfirmationemail>
@@ -224,7 +224,7 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                             <comment><![CDATA[
-                            Enabling an automated deposit of payments. <a href="https://guides.wirecard.at/request_parameters#autodeposit" target="_blank">More information</a>. Please contact our <a href="https://guides.wirecard.at/sales" target="_blank">sales teams</a> to activate this feature.
+                            Enabling an automated deposit of payments. <a href="https://guides.qenta.com/request_parameters#autodeposit" target="_blank">More information</a>. Please contact our <a href="https://guides.qenta.com/sales" target="_blank">sales teams</a> to activate this feature.
                             ]]>
                             </comment>
                         </autodeposit>
@@ -251,7 +251,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                Specific device type for which Qenta Checkout Page should be optimized ("desktop", "tablet" or "smartphone"). <a href="https://guides.wirecard.at/request_parameters#layout" target="_blank">More information.</a>
+                                Specific device type for which Qenta Checkout Page should be optimized ("desktop", "tablet" or "smartphone"). <a href="https://guides.qenta.com/request_parameters#layout" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </layout>
@@ -265,7 +265,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                Maximum number of payment attempts regarding a certain order. <a href="https://guides.wirecard.at/request_parameters#maxretries" target="_blank">More information.</a>
+                                Maximum number of payment attempts regarding a certain order. <a href="https://guides.qenta.com/request_parameters#maxretries" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </maxretries>
@@ -279,7 +279,7 @@
                             <show_in_store>1</show_in_store>
                             <comment>
                                 <![CDATA[
-                                Consumer must accept payolution terms during the checkout process. <a href="https://guides.wirecard.at/payment_methods:payolution:start" target="_blank">More information.</a>
+                                Consumer must accept payolution terms during the checkout process. <a href="https://guides.qenta.com/payment_methods:payolution:start" target="_blank">More information.</a>
                             ]]>
                             </comment>
                         </payolution_terms>
