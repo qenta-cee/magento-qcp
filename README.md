@@ -1,4 +1,4 @@
-# Qenta Checkout Page extension for Magento
+# Qenta Checkout Page extension for Magento / OpenMage
 
 [![License](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://raw.githubusercontent.com/qenta/Magento-WCP/master/LICENSE)
 [![OpenMage LTS 19.4.8](https://img.shields.io/badge/OpenMage_LTS-19.4.8-green.svg)](https://www.magento.com/)
