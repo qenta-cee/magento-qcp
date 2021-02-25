@@ -37,7 +37,6 @@ class Qenta_CheckoutPage_Model_System_Config_InvoiceProviders
         $themes = array(
             array('value' => 'payolution', 'label' => 'payolution'),
             array('value' => 'ratepay', 'label' => 'RatePay'),
-            array('value' => 'ratepay', 'label' => 'Qenta'),
         );
 
         return $themes;

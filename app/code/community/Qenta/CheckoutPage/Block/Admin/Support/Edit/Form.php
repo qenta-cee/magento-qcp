@@ -43,15 +43,13 @@ class Qenta_CheckoutPage_Block_Admin_Support_Edit_Form extends Mage_Adminhtml_Bl
         $fieldset = $form->addFieldset('form_form', array('legend' => Mage::helper('qenta_checkoutpage')->__('Item information')));
 
 
-        $fieldset->addField('to', 'select', array(
+        $fieldset->addField('to', 'text', array(
             'label'    => Mage::helper('qenta_checkoutpage')->__('To'),
             'class'    => 'required-entry',
             'required' => true,
+            'readonly' => true,
             'name'     => 'to',
-            'options'  => array(
-                'support@qenta.com' => 'Support AT',
-                'support@qenta.com' => 'Support DE'
-            )
+            'value'  => 'support@qenta.com'
         ));
 
         $fieldset->addField('replyto', 'text', array(
