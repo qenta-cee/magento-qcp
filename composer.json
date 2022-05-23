@@ -1,10 +1,10 @@
 {
-    "name": "qenta/magento-wcp",
+    "name": "qenta/magento-qcp",
     "license": "GPL-2.0-only",
     "type": "magento-module",
     "description": "Qenta Checkout Page extension for Magento",
     "keywords": ["qenta", "checkout", "page", "payment", "magento"],
-    "homepage": "https://www.qenta-cee.at",
+    "homepage": "https://www.qenta.com",
     "support": {
         "email": "support@qenta.com",
         "docs": "https://guides.qenta.com"

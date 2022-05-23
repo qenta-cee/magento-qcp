@@ -1,0 +1,48 @@
+services:
+  openmage_db_qcp:
+    image: mariadb:10.2
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${OPENMAGE_DB_ROOTPASS:-ABC123}
+      MYSQL_DATABASE: ${OPENMAGE_DB_NAME:-magento}
+      MYSQL_USER: ${OPENMAGE_DB_USER:-magento}
+      MYSQL_PASSWORD: ${OPENMAGE_DB_PASS:-magento}
+  # openmage_elasticsearch_qcp:
+  #   image: docker.io/bitnami/elasticsearch:7
+  #   logging:
+  #     driver: none
+  openmage_qcp:
+    container_name: openmage_qcp
+    build:
+      context: .docker/openmage/
+      dockerfile: Dockerfile
+    depends_on:
+      - openmage_db_qcp
+      # - openmage_elasticsearch_qcp
+    ports:
+      - ${PORT_HTTP:-8005}:80
+      - ${PORT_SSL:-8445}:443
+    volumes:
+      - ./:/tmp/plugin:ro
+    environment:
+      OPENMAGE_DB_HOST: ${OPENMAGE_DB_HOST:-openmage_db_qcp}
+      OPENMAGE_DB_NAME: ${OPENMAGE_DB_NAME:-magento}
+      OPENMAGE_DB_USER: ${OPENMAGE_DB_USER:-magento}
+      OPENMAGE_DB_PASS: ${OPENMAGE_DB_PASS:-magento}
+      OPENMAGE_TABLE_PREFIX: "mage_qcp_"
+      OPENMAGE_LOCALE: ${OPENMAGE_LOCALE:-en_US}
+      OPENMAGE_TITLE: ${OPENMAGE_TITLE:-QSHOP}
+      OPENMAGE_ADMIN_USER: ${OPENMAGE_ADMIN_USER:-admin}
+      OPENMAGE_ADMIN_PASS: ${OPENMAGE_ADMIN_PASS:-admin1234admin}
+      OPENMAGE_ADMIN_EMAIL: ${OPENMAGE_ADMIN_EMAIL:-admin@admin.com}
+      OPENMAGE_BASEURL: ${OPENMAGE_BASEURL}
+      OPENMAGE_VERSION: ${OPENMAGE_VERSION:-20.0}
+      PLUGIN_VERSION: ${PLUGIN_VERSION}
+      PLUGIN_URL: ${PLUGIN_URL:-local}
+      NGROK_TOKEN: ${NGROK_TOKEN}
+      # DEFAULT_COUNTRY_CODE: ${DEFAULT_COUNTRY_CODE:-AT}
+      GITHUB_SERVER_URL: ${GITHUB_SERVER_URL}
+      GITHUB_REPOSITORY: ${GITHUB_REPOSITORY}
+      GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}
+      GITHUB_SHA: ${GITHUB_SHA}
+      GITHUB_REF: ${GITHUB_REF}
